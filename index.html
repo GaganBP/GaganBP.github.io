@@ -31,13 +31,13 @@
         /* Intro Section */
         #intro {
             text-align: center;
-            padding: 100px 20px;
+            padding: 80px 20px 60px;
             background: linear-gradient(45deg, rgba(0, 123, 255, 0.1), rgba(108, 99, 255, 0.1));
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         #intro h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 20px;
             background: linear-gradient(135deg, #00d4ff, #6c63ff);
@@ -45,14 +45,16 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 30px rgba(108, 99, 255, 0.3);
+            line-height: 1.2;
         }
 
         #intro p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             max-width: 800px;
             margin: 0 auto 30px;
             color: #b8c5d1;
             line-height: 1.8;
+            padding: 0 10px;
         }
 
         #intro a {
@@ -69,7 +71,7 @@
 
         .button {
             display: inline-block;
-            padding: 12px 30px;
+            padding: clamp(10px, 2vw, 12px) clamp(20px, 4vw, 30px);
             background: linear-gradient(135deg, #6c63ff, #00d4ff);
             color: white;
             text-decoration: none;
@@ -79,6 +81,9 @@
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            text-align: center;
+            min-width: 120px;
         }
 
         .button:hover {
@@ -104,10 +109,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 20px;
+            flex-wrap: wrap;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             font-weight: 700;
             color: #00d4ff;
             text-decoration: none;
@@ -116,7 +122,8 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: clamp(15px, 4vw, 30px);
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -124,6 +131,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .nav-links a:hover {
@@ -131,28 +139,44 @@
             text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
         }
 
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #00d4ff;
+            transition: 0.3s;
+        }
+
         /* Main Content */
         #main {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: clamp(30px, 5vw, 60px) 20px;
         }
 
         /* Featured Project */
         .featured {
             background: rgba(30, 30, 45, 0.8);
             border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 60px;
+            padding: clamp(25px, 5vw, 40px);
+            margin-bottom: clamp(30px, 5vw, 60px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
         }
 
         .featured h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             margin-bottom: 20px;
             color: #00d4ff;
+            line-height: 1.3;
         }
 
         .featured h2 a {
@@ -161,9 +185,10 @@
         }
 
         .featured p {
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
             color: #b8c5d1;
             margin-bottom: 30px;
+            line-height: 1.7;
         }
 
         .image-container {
@@ -190,15 +215,15 @@
         /* Project Grid */
         .posts {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+            gap: clamp(20px, 3vw, 30px);
+            margin-top: clamp(20px, 4vw, 40px);
         }
 
         .post {
             background: rgba(30, 30, 45, 0.8);
             border-radius: 20px;
-            padding: 30px;
+            padding: clamp(20px, 4vw, 30px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
@@ -214,9 +239,10 @@
         }
 
         .post h2 {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             margin-bottom: 15px;
             color: #6c63ff;
+            line-height: 1.3;
         }
 
         .post h2 a {
@@ -250,6 +276,7 @@
             line-height: 1.7;
             flex-grow: 1;
             text-align: justify;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         /* Button Actions */
@@ -258,21 +285,23 @@
             gap: 15px;
             flex-wrap: wrap;
             align-items: center;
-            justify-content: center ;
+            justify-content: center;
             margin-top: auto;
         }
 
         .actions .button {
-            padding: 10px 20px;
-            font-size: 0.9rem;
-            flex: 0 0 auto;
+            padding: clamp(8px, 2vw, 10px) clamp(15px, 3vw, 20px);
+            font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+            flex: 1 1 auto;
+            min-width: 120px;
+            max-width: 200px;
         }
 
         /* Footer */
         #footer {
             background: rgba(15, 15, 25, 0.9);
-            padding: 60px 20px 30px;
-            margin-top: 80px;
+            padding: clamp(40px, 6vw, 60px) 20px 30px;
+            margin-top: clamp(50px, 8vw, 80px);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -280,20 +309,21 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+            gap: clamp(25px, 5vw, 40px);
         }
 
         .footer-section h3 {
             color: #00d4ff;
             margin-bottom: 20px;
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
         }
 
         .footer-section p, .footer-section a {
             color: #b8c5d1;
             text-decoration: none;
             line-height: 1.8;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .footer-section a:hover {
@@ -309,16 +339,17 @@
             margin-bottom: 5px;
             color: #e0e6ed;
             font-weight: 500;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .form-field input, .form-field textarea {
             width: 100%;
-            padding: 12px;
+            padding: clamp(10px, 2vw, 12px);
             background: rgba(30, 30, 45, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 8px;
             color: #e0e6ed;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .form-field input:focus, .form-field textarea:focus {
@@ -333,35 +364,156 @@
             color: #7a7a7a;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 40px;
+            font-size: clamp(0.8rem, 1.8vw, 0.9rem);
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        
+        /* Small Mobile Devices (320px - 480px) */
+        @media (max-width: 480px) {
+            #intro {
+                padding: 60px 15px 40px;
+            }
+            
             #intro h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
+            
+            #intro p {
+                font-size: 1rem;
+                padding: 0 5px;
             }
             
             .posts {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .actions {
                 flex-direction: column;
-                align-items: stretch;
+                gap: 10px;
             }
             
             .actions .button {
+                width: 100%;
+                max-width: none;
                 text-align: center;
             }
             
             .nav-links {
                 display: none;
             }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            #main {
+                padding: 30px 15px;
+            }
+            
+            .featured, .post {
+                padding: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        /* Large Mobile Devices (481px - 768px) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            #intro {
+                padding: 70px 20px 50px;
+            }
+            
+            .posts {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .actions {
+                justify-content: space-between;
+            }
+            
+            .actions .button {
+                flex: 1 1 calc(50% - 7.5px);
+                min-width: auto;
+            }
+            
+            .nav-links {
+                gap: 20px;
+            }
+        }
+        
+        /* Tablets (769px - 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .posts {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .actions .button {
+                flex: 0 1 auto;
+                min-width: 140px;
+            }
+            
+            #intro {
+                padding: 80px 30px 60px;
+            }
+        }
+        
+        /* Small Laptops (1025px - 1366px) */
+        @media (min-width: 1025px) and (max-width: 1366px) {
+            .posts {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            #intro h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        /* Large Screens (1367px+) */
+        @media (min-width: 1367px) {
+            .posts {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            #main {
+                padding: 80px 20px;
+            }
+        }
+        
+        /* High DPI/Retina Displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .image-container img, .post-image-container img {
+                image-rendering: -webkit-optimize-contrast;
+            }
+        }
+        
+        /* Landscape Mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            #intro {
+                padding: 40px 20px 30px;
+            }
+            
+            #intro h1 {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+            
+            #intro p {
+                margin-bottom: 20px;
+            }
         }
 
         /* Scrollbar Styling */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: clamp(6px, 1vw, 8px);
         }
 
         ::-webkit-scrollbar-track {
@@ -375,6 +527,44 @@
 
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(135deg, #5a52e6, #00b8e6);
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .button {
+                background: #333;
+                color: white;
+            }
+            
+            #header {
+                position: static;
+                background: white;
+                border-bottom: 1px solid #ccc;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in {
+                animation: none;
+            }
+            
+            .button:hover {
+                transform: none;
+            }
+            
+            .post:hover {
+                transform: none;
+            }
+            
+            .image-container:hover img, .post-image-container:hover img {
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -393,6 +583,11 @@
         <header id="header">
             <nav id="nav">
                 <a href="#" class="logo">Gagan's Portfolio</a>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <ul class="nav-links">
                     <li><a href="#main">Projects</a></li>
                     <li><a href="#footer">Contact</a></li>
@@ -460,7 +655,7 @@
                             <img src="images/Suicide.png" alt="Suicide Trends Analysis" />
                         </a>
                     </div>
-                    <p>In this academic project, We analyzed suicide trends in India using NCRB 2021 data. The analysis highlights regional patterns across states, cities, and union territories through visualizations. A basic regression model was also applied to explore predictive trends.</p>
+                    <p>In this project, I analyzed suicide trends in India using NCRB 2021 data. The analysis highlights regional patterns across states, cities, and union territories through visualizations. A basic regression model was also applied to explore predictive trends.</p>
                     <div class="actions">
                         <a href="https://github.com/GaganBP/analysis-suicide-trends-india" class="button" target="_blank">View on GitHub</a>
                         <a href="https://colab.research.google.com/drive/1qD9ZWWSRSRL2LT2pmPRT0VBetrJ6T0Sw" class="button" target="_blank">Open Analysis in Colab</a>
@@ -488,42 +683,27 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Get In Touch</h3>
-                   <!---<form>
+                    <form action="https://formspree.io/f/xkgbjblo" method="POST">
                         <div class="form-field">
                             <label for="name">Name</label>
-                            <input type="text" name="name" id="name" />
+                            <input type="text" name="name" id="name" required />
                         </div>
                         <div class="form-field">
                             <label for="email">Email</label>
-                            <input type="email" name="email" id="email" />
+                            <input type="email" name="email" id="email" required />
                         </div>
                         <div class="form-field">
                             <label for="message">Message</label>
-                            <textarea name="message" id="message" rows="4"></textarea>
+                            <textarea name="message" id="message" rows="4" required></textarea>
                         </div>
-                        <a href="#" class="button">Send Message</a>
-                    </form> -->
-                        <form action="https://formspree.io/f/xkgbjblo" method="POST">
-                            <div class="form-field">
-                                <label for="name">Name</label>
-                                <input type="text" name="name" id="name" required />
-                            </div>
-                            <div class="form-field">
-                                <label for="email">Email</label>
-                                <input type="email" name="email" id="email" required />
-                            </div>
-                            <div class="form-field">
-                                <label for="message">Message</label>
-                                <textarea name="message" id="message" rows="4" required></textarea>
-                            </div>
-                            <button type="submit" class="button">Send Message</button>
-                        </form>
+                        <button type="submit" class="button">Send Message</button>
+                    </form>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Contact Info</h3>
                     <p><strong>Location:</strong><br>Bengaluru, Karnataka, India</p>
-                    <p><strong>Email:</strong><br><a href="mailto:gagan@example.com">gaganbp77@gmail.com</a></p>
+                    <p><strong>Email:</strong><br><a href="mailto:gaganbp77@gmail.com">gaganbp77@gmail.com</a></p>
                     <p><strong>LinkedIn:</strong><br><a href="https://www.linkedin.com/in/gagan-b-p-0a9635243/">Connect with me</a></p>
                 </div>
                 
@@ -534,7 +714,6 @@
                     <p>• SQL & Database Management</p>
                     <p>• Machine Learning Basics</p>
                     <p>• Data Visualization</p>
-                    
                 </div>
             </div>
             
