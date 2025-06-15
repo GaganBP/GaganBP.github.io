@@ -4,6 +4,7 @@
     <title>Gagan Data Analyst Portfolio</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -17,6 +18,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .fade-in {
@@ -26,6 +28,19 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating animation for decorative elements */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Pulse animation for CTA elements */
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 12px 35px rgba(108, 99, 255, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4); }
         }
 
         /* Header */
@@ -38,6 +53,12 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(0, 212, 255, 0.2);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        #header.scrolled {
+            padding: 8px 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
         }
 
         #nav {
@@ -58,6 +79,29 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #00d4ff, #6c63ff);
+            transition: width 0.4s ease;
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.2em;
         }
 
         .nav-links {
@@ -74,6 +118,13 @@
             transition: all 0.3s ease;
             font-size: clamp(0.95rem, 2vw, 1.1rem);
             position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a i {
+            margin-right: 8px;
+            font-size: 0.9em;
         }
 
         .nav-links a::after {
@@ -102,6 +153,7 @@
             cursor: pointer;
             gap: 4px;
             z-index: 1001;
+            padding: 10px;
         }
 
         .menu-toggle span {
@@ -131,18 +183,68 @@
             padding: 50px 20px 40px;
             background: linear-gradient(45deg, rgba(0, 123, 255, 0.08), rgba(108, 99, 255, 0.08));
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative floating elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.1);
+            filter: blur(30px);
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 30%;
+            right: 20%;
+            animation-delay: 4s;
         }
 
         #intro h1 {
             font-size: clamp(2.5rem, 6vw, 4rem);
             font-weight: 800;
             margin-bottom: 15px;
-            background: linear-gradient(135deg, #00d4ff);
+            background: linear-gradient(135deg, #00d4ff, #6c63ff);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 40px rgba(108, 99, 255, 0.3);
             line-height: 1.1;
+            position: relative;
+            display: inline-block;
+        }
+
+        #intro h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+            border-radius: 3px;
         }
 
         #intro p {
@@ -190,12 +292,37 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .button:hover::before {
+            left: 100%;
         }
 
         .button:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 35px rgba(108, 99, 255, 0.6);
             background: linear-gradient(135deg, #5a52e6, #00b8e6);
+            animation: pulse 1.5s infinite;
+        }
+
+        .button i {
+            margin-right: 10px;
+            font-size: 1.1em;
         }
 
         /* Main Content */
@@ -217,6 +344,13 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .project-card::before {
@@ -247,12 +381,21 @@
             color: #00d4ff;
             line-height: 1.3;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-card h2 i {
+            margin-right: 15px;
+            font-size: 1.2em;
         }
 
         .project-card h2 a {
             color: inherit;
             text-decoration: none;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
         }
 
         .project-card h2 a:hover {
@@ -275,6 +418,24 @@
             box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
             aspect-ratio: 16/9;
             background: rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(0, 212, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .image-container:hover::before {
+            opacity: 1;
         }
 
         .image-container img {
@@ -286,6 +447,41 @@
 
         .image-container:hover img {
             transform: scale(1.05);
+        }
+
+        .image-container .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .image-container:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+            background: rgba(108, 99, 255, 0.7);
+            border-radius: 10px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover .overlay-text {
+            transform: translateY(0);
         }
 
         /* Button Actions */
@@ -303,12 +499,39 @@
             max-width: 250px;
         }
 
+        /* Tech badges */
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-badge {
+            background: rgba(108, 99, 255, 0.2);
+            color: #c0c7d0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(108, 99, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background: rgba(108, 99, 255, 0.4);
+            color: white;
+            transform: translateY(-2px);
+        }
+
         /* Footer */
         #footer {
             background: rgba(10, 10, 20, 0.95);
             padding: clamp(40px, 6vw, 60px) 20px 25px;
             margin-top: clamp(40px, 6vw, 60px);
             border-top: 1px solid rgba(0, 212, 255, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
         .footer-content {
@@ -324,6 +547,13 @@
             margin-bottom: 20px;
             font-size: clamp(1.2rem, 2.8vw, 1.4rem);
             font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-section h3 i {
+            margin-right: 12px;
+            font-size: 1.2em;
         }
 
         .footer-section p, .footer-section a {
@@ -332,7 +562,18 @@
             line-height: 1.9;
             font-size: clamp(1rem, 2.2vw, 1.1rem);
             font-weight: 400;
+            display: flex;
+            align-items: center;
         }
+
+       .footer-section p i {
+    margin-right: 10px;
+    font-size: 0.9em;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+}
+
 
         .footer-section a:hover {
             color: #00d4ff;
@@ -360,6 +601,7 @@
             color: #e0e6ed;
             font-size: clamp(1rem, 2.2vw, 1.1rem);
             transition: all 0.3s ease;
+            font-family: inherit;
         }
 
         .form-field input:focus, .form-field textarea:focus {
@@ -376,6 +618,117 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 35px;
             font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6c63ff, #00d4ff);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(108, 99, 255, 0.4);
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(108, 99, 255, 0.6);
+        }
+
+        /* Loading animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(108, 99, 255, 0.2);
+            border-top: 5px solid #6c63ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loader-text {
+            color: #e0e6ed;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #00d4ff, #6c63ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Tooltip for icons */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: rgba(25, 25, 40, 0.95);
+            color: #e0e6ed;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8rem;
+            border: 1px solid rgba(108, 99, 255, 0.4);
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
         }
 
         /* Mobile Menu Styles */
@@ -440,6 +793,10 @@
                 grid-template-columns: 1fr;
                 gap: 35px;
             }
+
+            .floating-element:nth-child(3) {
+                display: none;
+            }
         }
 
         /* Scrollbar Styling */
@@ -462,33 +819,55 @@
 
         /* Reduced Motion */
         @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+            
             .fade-in, .button:hover, .project-card:hover, .image-container:hover img {
-                animation: none;
-                transform: none;
+                animation: none !important;
+                transform: none !important;
+            }
+            
+            .project-card {
+                opacity: 1 !important;
+                transform: none !important;
             }
         }
     </style>
 </head>
 <body class="fade-in">
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading Portfolio...</div>
+        </div>
+    </div>
+
     <div id="wrapper">
         <!-- Header -->
         <header id="header">
             <nav id="nav">
-                <a href="#" class="logo">Gagan's Portfolio</a>
+                <a href="#" class="logo"><i class="fas fa-chart-line"></i>Gagan's Portfolio</a>
                 <div class="menu-toggle" id="mobile-menu">
                     <span></span>
                     <span></span>
                     <span></span>       
                 </div>
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="#main">Projects</a></li>
-                    <li><a href="#footer">Contact</a></li>
+                    <li><a href="#main"><i class="fas fa-project-diagram"></i>Projects</a></li>
+                    <li><a href="#footer"><i class="fas fa-envelope"></i>Contact</a></li>
                 </ul>
             </nav>
         </header>
 
         <!-- Intro -->
         <div id="intro">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            
             <h1>Gagan Data Analyst<br />Portfolio</h1>
             <p style="text-align: center;">
                 Turning raw data into meaningful insight is what I do best.  
@@ -496,10 +875,10 @@
                 I use modern tools and AI like ChatGPT to simplify logic, speed up workflows, and bring clarity to complex data.  
                 I believe clear visualizations often speak louder than words — so every project I build is focused on clarity, simplicity, and value.  
                 <br><br>
-                Feel free to connect with me on <a href="https://www.linkedin.com/in/gagan-b-p-0a9635243/">LinkedIn</a> to discuss collaborations or opportunities.
+                Feel free to connect with me on <a href="https://www.linkedin.com/in/gagan-b-p-0a9635243/"><i class="fab fa-linkedin"></i>LinkedIn</a> to discuss collaborations or opportunities.
             </p>
             <div style="margin-top: 25px;">
-                <a href="#main" class="button" style="color: #ccc;">Explore My Work</a>
+                <a href="#main" class="button" style="color: #ccc;"><i class="fas fa-arrow-down"></i>Explore My Work</a>
             </div>
         </div>
 
@@ -509,130 +888,215 @@
             <article class="project-card">
                 <h2>
                     <a href="https://github.com/GaganBP/PowerBI-HR-Analytics">
-                        HR Analytics Using Power BI
+                        <i class="fas fa-users"></i>HR Analytics Using Power BI
                     </a>
                 </h2>
                 <p>In this project, I created a Power BI dashboard to analyze employee attrition and workforce trends, delivering actionable insights to improve retention and optimize compensation.</p>
                 
+                <div class="tech-badges">
+                    <span class="tech-badge">Power BI</span>
+                    <span class="tech-badge">Data Visualization</span>
+                    <span class="tech-badge">HR Analytics</span>
+                    <span class="tech-badge">Dashboard Design</span>
+                </div>
+                
                 <div class="image-container">
                     <a href="https://app.fabric.microsoft.com/view?r=eyJrIjoiNzViZTNjZTYtYTU4MS00NjViLTg2ODktZjAxNWZhODMyYzRiIiwidCI6IjY3OWY5YTYyLTIwODQtNGI0Yy1iNzk2LWI1NGFkZTM5ZmUxYiJ9" target="_blank">
                         <img src="images/Hranalytics.png" alt="HR Analytics Dashboard" />
+                        <div class="overlay">
+                            <div class="overlay-text">View Interactive Dashboard</div>
+                        </div>
                     </a>
                 </div>
                 
                 <div class="actions">
-                    <a href="https://github.com/GaganBP/PowerBI-HR-Analytics" class="button" target="_blank">View on GitHub</a>
-                    <a href="https://app.fabric.microsoft.com/view?r=eyJrIjoiNzViZTNjZTYtYTU4MS00NjViLTg2ODktZjAxNWZhODMyYzRiIiwidCI6IjY3OWY5YTYyLTIwODQtNGI0Yy1iNzk2LWI1NGFkZTM5ZmUxYiJ9" class="button" target="_blank">View Live Dashboard</a>
+                    <a href="https://github.com/GaganBP/PowerBI-HR-Analytics" class="button" target="_blank"><i class="fab fa-github"></i>View on GitHub</a>
+                    
                 </div>
             </article>
 
             <!-- Project 2 -->
             <article class="project-card">
-                <h2><a href="https://github.com/GaganBP/Amazon-Sale-Analytics">Amazon Sales Analytics Using Power BI</a></h2>
+                <h2><a href="https://github.com/GaganBP/Amazon-Sale-Analytics"><i class="fab fa-amazon"></i>Amazon Sales Analytics Using Power BI</a></h2>
+                <p>In this project, I created a Power BI dashboard to analyze Amazon sales trends, product performance, and state-wise profits, enabling data-driven decisions through interactive and insightful visualizations.</p>
+                
+                <div class="tech-badges">
+                    <span class="tech-badge">Power BI</span>
+                    <span class="tech-badge">E-commerce</span>
+                    <span class="tech-badge">Sales Analysis</span>
+                    <span class="tech-badge">Business Intelligence</span>
+                </div>
+                
                 <div class="image-container">
                     <a href="https://app.fabric.microsoft.com/view?r=eyJrIjoiMTJiZGI1N2QtMDBmMy00NDI1LThiMDAtZDc3MWM0YzhiODZiIiwidCI6IjY3OWY5YTYyLTIwODQtNGI0Yy1iNzk2LWI1NGFkZTM5ZmUxYiJ9" target="_blank">
                         <img src="images/AmazonSales.png" alt="Amazon Sales Dashboard" />
+                        <div class="overlay">
+                            <div class="overlay-text">View Interactive Dashboard</div>
+                        </div>
                     </a>
                 </div>
-                <p>In this project, I created a Power BI dashboard to analyze Amazon sales trends, product performance, and state-wise profits, enabling data-driven decisions through interactive and insightful visualizations.</p>
                 <div class="actions">
-                    <a href="https://github.com/GaganBP/Amazon-Sale-Analytics" class="button" target="_blank">View on GitHub</a>
-                    <a href="https://app.fabric.microsoft.com/view?r=eyJrIjoiMTJiZGI1N2QtMDBmMy00NDI1LThiMDAtZDc3MWM0YzhiODZiIiwidCI6IjY3OWY5YTYyLTIwODQtNGI0Yy1iNzk2LWI1NGFkZTM5ZmUxYiJ9" class="button" target="_blank">View Live Dashboard</a>
+                    <a href="https://github.com/GaganBP/Amazon-Sale-Analytics" class="button" target="_blank"><i class="fab fa-github"></i>View on GitHub</a>
+                    
                 </div>
             </article>
 
             <!-- Project 3 -->
             <article class="project-card">
-                <h2><a href="https://github.com/GaganBP/Heart-Disease-Prediction-Comprehensive-ML-Algorithm-Comparison">Heart Disease Prediction Using Machine Learning</a></h2>
+                <h2><a href="https://github.com/GaganBP/Heart-Disease-Prediction-Comprehensive-ML-Algorithm-Comparison"><i class="fas fa-heartbeat"></i>Heart Disease Prediction Using Machine Learning</a></h2>
+                <p>I compared ML, DL, and ensemble models for heart disease prediction; the stacked model performed best with ROC-AUC 0.93. The project highlights strong evaluation and model tuning skills.</p>
+                
+                <div class="tech-badges">
+                    <span class="tech-badge">Machine Learning</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Healthcare</span>
+                    <span class="tech-badge">Scikit-learn</span>
+                </div>
+                
                 <div class="image-container">
                     <a href="https://colab.research.google.com/drive/1aBL_nwgUIlFRxyo6BBzHXon88bi2qkTI" target="_blank">
                         <img src="images/heartdisease.png" alt="Heart Disease Prediction" />
+                        <div class="overlay">
+                            <div class="overlay-text">Open in Google Colab</div>
+                        </div>
                     </a>
                 </div>
-                <p>I compared ML, DL, and ensemble models for heart disease prediction; the stacked model performed best with ROC-AUC 0.93. The project highlights strong evaluation and model tuning skills.</p>
                 <div class="actions">
-                    <a href="https://github.com/GaganBP/Heart-Disease-Prediction-Comprehensive-ML-Algorithm-Comparison" class="button" target="_blank">View on GitHub</a>
-                    <a href="https://colab.research.google.com/drive/1aBL_nwgUIlFRxyo6BBzHXon88bi2qkTI" class="button" target="_blank">Open Analysis in Colab</a>
-                </div>
+                    <a href="https://github.com/GaganBP/Heart-Disease-Prediction-Comprehensive-ML-Algorithm-Comparison" class="button" target="_blank"><i class="fab fa-github"></i>View on GitHub</a>
+                    <!--<a href="https://colab.research.google.com/drive/1aBL_nwgUIlFRxyo6BBzHXon88bi2qkTI" class="button" target="_blank"><i class="fas fa-code"></i>Open Analysis in Colab</a> -->                </div>
             </article>
 
             <!-- Project 4 -->
             <article class="project-card">
-                <h2><a href="https://github.com/GaganBP/analysis-suicide-trends-india">Analysis of Suicide Trends in India</a></h2>
+                <h2><a href="https://github.com/GaganBP/analysis-suicide-trends-india"><i class="fas fa-chart-line"></i>Analysis of Suicide Trends in India</a></h2>
+                <p>In this project, I analyzed suicide trends in India using NCRB 2021 data. The analysis highlights regional patterns across states, cities, and union territories through visualizations. A basic regression model was also applied to explore predictive trends.</p>
+                
+                <div class="tech-badges">
+                    <span class="tech-badge">Data Analysis</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Pandas</span>
+                    <span class="tech-badge">Matplotlib</span>
+                </div>
+                
                 <div class="image-container">
                     <a href="https://colab.research.google.com/drive/1qD9ZWWSRSRL2LT2pmPRT0VBetrJ6T0Sw" target="_blank">
                         <img src="images/Suicide.png" alt="Suicide Trends Analysis" />
+                        <div class="overlay">
+                            <div class="overlay-text">Open in Google Colab</div>
+                        </div>
                     </a>
                 </div>
-                <p>In this project, I analyzed suicide trends in India using NCRB 2021 data. The analysis highlights regional patterns across states, cities, and union territories through visualizations. A basic regression model was also applied to explore predictive trends.</p>
                 <div class="actions">
-                    <a href="https://github.com/GaganBP/analysis-suicide-trends-india" class="button" target="_blank">View on GitHub</a>
-                    <a href="https://colab.research.google.com/drive/1qD9ZWWSRSRL2LT2pmPRT0VBetrJ6T0Sw" class="button" target="_blank">Open Analysis in Colab</a>
-                </div>
+                    <a href="https://github.com/GaganBP/analysis-suicide-trends-india" class="button" target="_blank"><i class="fab fa-github"></i>View on GitHub</a>
+                  <!--  <a href="https://colab.research.google.com/drive/1qD9ZWWSRSRL2LT2pmPRT0VBetrJ6T0Sw" class="button" target="_blank"><i class="fas fa-code"></i>Open Analysis in Colab</a>
+               --> </div>
             </article>
 
             <!-- Project 5 -->
             <article class="project-card">
-                <h2><a href="https://github.com/GaganBP/Netflix_Movie_Analysis">Netflix Movie Analysis</a></h2>
+                <h2><a href="https://github.com/GaganBP/Netflix_Movie_Analysis"><i class="fas fa-film"></i>Netflix Movie Analysis</a></h2>
+                <p>In this project, I analyzed a Netflix movie dataset to explore trends in popularity, genres, ratings, and release years. The analysis included data cleaning, visualization, and basic statistics to uncover key insights. It highlights factors that may influence a movie's success on the platform.</p>
+                
+                <div class="tech-badges">
+                    <span class="tech-badge">Data Analysis</span>
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Entertainment</span>
+                    <span class="tech-badge">Seaborn</span>
+                </div>
+                
                 <div class="image-container">
                     <a href="https://colab.research.google.com/drive/1sW9Z8xRmcpbB_UrwSRDPXrnNVaGZ0xZb" target="_blank">
                         <img src="images/Netflix.png" alt="Netflix Movie Analysis" />
+                        <div class="overlay">
+                            <div class="overlay-text">Open in Google Colab</div>
+                        </div>
                     </a>
                 </div>
-                <p>In this project, I analyzed a Netflix movie dataset to explore trends in popularity, genres, ratings, and release years. The analysis included data cleaning, visualization, and basic statistics to uncover key insights. It highlights factors that may influence a movie's success on the platform.</p>
                 <div class="actions">
-                    <a href="https://github.com/GaganBP/Netflix_Movie_Analysis" class="button" target="_blank">View on GitHub</a>
-                    <a href="https://colab.research.google.com/drive/1sW9Z8xRmcpbB_UrwSRDPXrnNVaGZ0xZb" class="button" target="_blank">Open Analysis in Colab</a>
+                    <a href="https://github.com/GaganBP/Netflix_Movie_Analysis" class="button" target="_blank"><i class="fab fa-github"></i>View on GitHub</a>
+                  <!--  <a href="https://colab.research.google.com/drive/1sW9Z8xRmcpbB_UrwSRDPXrnNVaGZ0xZb" class="button" target="_blank"><i class="fas fa-code"></i>Open Analysis in Colab</a> -->
                 </div>
             </article>
         </div>
 
-        <!-- Footer -->
-        <footer id="footer">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Get In Touch</h3>
-                    <form action="https://formspree.io/f/xkgbjblo" method="POST">
-                        <div class="form-field">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" required />
-                        </div>
-                        <div class="form-field">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" required />
-                        </div>
-                        <div class="form-field">
-                            <label for="message">Message</label>
-                            <textarea name="message" id="message" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="button">Send Message</button>
-                    </form>
+  <!-- Footer -->
+<footer id="footer">
+    <div class="footer-content">
+
+        <!-- 1. Contact Info -->
+        <div class="footer-section">
+            <h3><i class="fas fa-address-card"></i> <span>Contact Info</span></h3>
+
+            <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong>
+                <span>Bengaluru, Karnataka, India</span>
+            </p>
+
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong>
+                <a href="mailto:gaganbp77@gmail.com">gaganbp77@gmail.com</a>
+            </p>
+
+            <p><i class="fab fa-linkedin"></i> <strong>LinkedIn:</strong>
+                <a href="https://www.linkedin.com/in/gagan-b-p-0a9635243/">Connect with me</a>
+            </p>
+
+            <p><i class="fab fa-github"></i> <strong>GitHub:</strong>
+                <a href="https://github.com/GaganBP">View my projects</a>
+            </p>
+        </div>
+
+        <!-- 2. Skills & Technologies -->
+        <div class="footer-section">
+            <h3><i class="fas fa-code"></i> <span>Skills & Technologies</span></h3>
+            <p><i class="fab fa-python"></i> Python (Pandas, NumPy, Seaborn, Matplotlib)</p>
+            <p><i class="fas fa-chart-bar"></i> Power BI & Excel</p>
+            <p><i class="fas fa-database"></i> SQL & Database Management</p>
+            <p><i class="fas fa-brain"></i> Machine Learning Basics</p>
+            <p><i class="fas fa-chart-pie"></i> Data Visualization</p>
+        </div>
+
+        <!-- 3. Get In Touch -->
+        <div class="footer-section">
+            <h3><i class="fas fa-paper-plane"></i> <span>Get In Touch</span></h3>
+            <form action="https://formspree.io/f/xkgbjblo" method="POST">
+                <div class="form-field">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" required />
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><strong>Location:</strong><br>Bengaluru, Karnataka, India</p>
-                    <p><strong>Email:</strong><br><a href="mailto:gaganbp77@gmail.com">gaganbp77@gmail.com</a></p>
-                    <p><strong>LinkedIn:</strong><br><a href="https://www.linkedin.com/in/gagan-b-p-0a9635243/">Connect with me</a></p>
+                <div class="form-field">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required />
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Skills & Technologies</h3>
-                    <p>• Python (Pandas, NumPy, Seaborn, Matplotlib)</p>
-                    <p>• Power BI & Excel</p>
-                    <p>• SQL & Database Management</p>
-                    <p>• Machine Learning Basics</p>
-                    <p>• Data Visualization</p>
+                <div class="form-field">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" rows="4" required></textarea>
                 </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 Gagan Data Analyst Portfolio. All rights reserved.</p>
-            </div>
-        </footer>
+                <button type="submit" class="button">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="copyright">
+        <p>&copy; 2025 Gagan Data Analyst Portfolio. All rights reserved.</p>
+    </div>
+</footer>
+
+        <!-- Back to top button -->
+        <div class="back-to-top" id="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </div>
     </div>
 
     <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+        });
+
         // Mobile menu toggle functionality
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
@@ -677,6 +1141,102 @@
                 }
             });
         });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Project card animation on scroll
+        const projectCards = document.querySelectorAll('.project-card');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        projectCards.forEach(card => {
+            observer.observe(card);
+        });
+
+        // Tooltip functionality
+        const tooltips = document.querySelectorAll('.tooltip');
+        tooltips.forEach(tooltip => {
+            tooltip.addEventListener('mouseenter', function() {
+                const tooltiptext = this.querySelector('.tooltiptext');
+                if (tooltiptext) {
+                    tooltiptext.style.visibility = 'visible';
+                    tooltiptext.style.opacity = '1';
+                }
+            });
+            
+            tooltip.addEventListener('mouseleave', function() {
+                const tooltiptext = this.querySelector('.tooltiptext');
+                if (tooltiptext) {
+                    tooltiptext.style.visibility = 'hidden';
+                    tooltiptext.style.opacity = '0';
+                }
+            });
+        });
+
+        // Form submission handling
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Message sent successfully!');
+                        form.reset();
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    alert('There was a problem sending your message. Please try again later.');
+                    console.error('Error:', error);
+                });
+            });
+        }
     </script>
 </body>
 </html>
