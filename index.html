@@ -1054,14 +1054,18 @@
             <p><i class="fas fa-chart-pie"></i> Data Visualization</p>
         </div>
 
-     <!-- 3. Get In Touch -->
+  <!-- 3. Get In Touch -->
 <div class="footer-section">
     <h3><i class="fas fa-paper-plane"></i> <span>Get In Touch</span></h3>
-    <form action="https://formspree.io/f/xkgbjblo" method="POST">
+    <form id="contact-form" action="https://formspree.io/f/xkgbjblo" method="POST">
+        <!-- Honeypot trap -->
+        <input type="text" name="_gotcha" style="display:none">
+
         <div class="form-field">
             <label for="name">Name</label>
-            <input type="text" name="name" id="name" required />
+            <input type="text" name="name" id="name" required pattern="[A-Za-z\s]+" title="Enter a valid name (letters only)">
         </div>
+
         <div class="form-field">
             <label for="email">Email</label>
             <input 
@@ -1069,37 +1073,57 @@
                 name="email" 
                 id="email" 
                 required 
-                pattern="[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com|protonmail\.com|icloud\.com)$" 
                 title="Only Gmail, Yahoo, Outlook, Hotmail, ProtonMail, or iCloud emails are allowed." />
             <span id="email-warning" style="color:red; display:none;">
                 Only trusted domains like Gmail, Yahoo, Outlook, etc. are allowed.
             </span>
         </div>
+
         <div class="form-field">
             <label for="message">Message</label>
             <textarea name="message" id="message" rows="4" required></textarea>
         </div>
+
         <button type="submit" class="button">
             <i class="fas fa-paper-plane"></i> Send Message
         </button>
     </form>
 </div>
 
-<!-- Add this script at the bottom of your HTML before </body> -->
+<!-- Add this script before </body> -->
 <script>
-    document.getElementById('email').addEventListener('input', function () {
-        const allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'protonmail.com', 'icloud.com'];
-        const email = this.value;
+    const allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'protonmail.com', 'icloud.com'];
+
+    const emailInput = document.getElementById('email');
+    const warning = document.getElementById('email-warning');
+    const form = document.getElementById('contact-form');
+
+    emailInput.addEventListener('input', function () {
+        const email = emailInput.value;
         const domain = email.substring(email.lastIndexOf("@") + 1);
-        const warning = document.getElementById('email-warning');
 
         if (email && !allowedDomains.includes(domain)) {
             warning.style.display = 'block';
+            emailInput.setCustomValidity("Invalid email domain.");
         } else {
             warning.style.display = 'none';
+            emailInput.setCustomValidity("");
+        }
+    });
+
+    // Optional: Double-check on submit too
+    form.addEventListener('submit', function (e) {
+        const email = emailInput.value;
+        const domain = email.substring(email.lastIndexOf("@") + 1);
+
+        if (!allowedDomains.includes(domain)) {
+            e.preventDefault();
+            warning.style.display = 'block';
+            alert("Submission blocked: Only trusted email domains allowed.");
         }
     });
 </script>
+
 
     <!-- Footer Bottom -->
     <div class="copyright">
