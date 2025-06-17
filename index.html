@@ -1054,28 +1054,52 @@
             <p><i class="fas fa-chart-pie"></i> Data Visualization</p>
         </div>
 
-        <!-- 3. Get In Touch -->
-        <div class="footer-section">
-            <h3><i class="fas fa-paper-plane"></i> <span>Get In Touch</span></h3>
-            <form action="https://formspree.io/f/xkgbjblo" method="POST">
-                <div class="form-field">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" required />
-                </div>
-                <div class="form-field">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" required />
-                </div>
-                <div class="form-field">
-                    <label for="message">Message</label>
-                    <textarea name="message" id="message" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="button">
-                    <i class="fas fa-paper-plane"></i> Send Message
-                </button>
-            </form>
+     <!-- 3. Get In Touch -->
+<div class="footer-section">
+    <h3><i class="fas fa-paper-plane"></i> <span>Get In Touch</span></h3>
+    <form action="https://formspree.io/f/xkgbjblo" method="POST">
+        <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required />
         </div>
-    </div>
+        <div class="form-field">
+            <label for="email">Email</label>
+            <input 
+                type="email" 
+                name="email" 
+                id="email" 
+                required 
+                pattern="[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com|protonmail\.com|icloud\.com)$" 
+                title="Only Gmail, Yahoo, Outlook, Hotmail, ProtonMail, or iCloud emails are allowed." />
+            <span id="email-warning" style="color:red; display:none;">
+                Only trusted domains like Gmail, Yahoo, Outlook, etc. are allowed.
+            </span>
+        </div>
+        <div class="form-field">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="button">
+            <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+    </form>
+</div>
+
+<!-- Add this script at the bottom of your HTML before </body> -->
+<script>
+    document.getElementById('email').addEventListener('input', function () {
+        const allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'protonmail.com', 'icloud.com'];
+        const email = this.value;
+        const domain = email.substring(email.lastIndexOf("@") + 1);
+        const warning = document.getElementById('email-warning');
+
+        if (email && !allowedDomains.includes(domain)) {
+            warning.style.display = 'block';
+        } else {
+            warning.style.display = 'none';
+        }
+    });
+</script>
 
     <!-- Footer Bottom -->
     <div class="copyright">
