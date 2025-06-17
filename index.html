@@ -1090,37 +1090,38 @@
     </form>
 </div>
 
-<!-- Add this script before </body> -->
+<!-- Place this just before </body> -->
 <script>
-    const allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'protonmail.com', 'icloud.com'];
+    document.addEventListener("DOMContentLoaded", function () {
+        const allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'protonmail.com', 'icloud.com'];
 
-    const emailInput = document.getElementById('email');
-    const warning = document.getElementById('email-warning');
-    const form = document.getElementById('contact-form');
+        const emailInput = document.getElementById('email');
+        const warning = document.getElementById('email-warning');
+        const form = document.getElementById('contact-form');
 
-    emailInput.addEventListener('input', function () {
-        const email = emailInput.value;
-        const domain = email.substring(email.lastIndexOf("@") + 1);
+        emailInput.addEventListener('input', function () {
+            const email = emailInput.value;
+            const domain = email.substring(email.lastIndexOf("@") + 1);
 
-        if (email && !allowedDomains.includes(domain)) {
-            warning.style.display = 'block';
-            emailInput.setCustomValidity("Invalid email domain.");
-        } else {
-            warning.style.display = 'none';
-            emailInput.setCustomValidity("");
-        }
-    });
+            if (email && !allowedDomains.includes(domain)) {
+                warning.style.display = 'block';
+                emailInput.setCustomValidity("Invalid email domain.");
+            } else {
+                warning.style.display = 'none';
+                emailInput.setCustomValidity("");
+            }
+        });
 
-    // Optional: Double-check on submit too
-    form.addEventListener('submit', function (e) {
-        const email = emailInput.value;
-        const domain = email.substring(email.lastIndexOf("@") + 1);
+        form.addEventListener('submit', function (e) {
+            const email = emailInput.value;
+            const domain = email.substring(email.lastIndexOf("@") + 1);
 
-        if (!allowedDomains.includes(domain)) {
-            e.preventDefault();
-            warning.style.display = 'block';
-            alert("Submission blocked: Only trusted email domains allowed.");
-        }
+            if (!allowedDomains.includes(domain)) {
+                e.preventDefault();
+                warning.style.display = 'block';
+                alert("Submission blocked: Only trusted email domains allowed.");
+            }
+        });
     });
 </script>
 
