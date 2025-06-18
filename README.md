@@ -1,8 +1,8 @@
-# Gagan BP – Freelance Data Analyst
+# Gagan BP – Data Analyst | Open to Freelance Projects
 
-### Turning Raw Data into Powerful Business Insights
+### Helping Businesses Make Smarter Decisions Through Data
 
-I’m Gagan, a professional data analyst specializing in Excel, Power BI, and Python. I help individuals, startups, and businesses make sense of their data through clean visuals, insightful dashboards, and automated solutions.
+I’m Gagan, a professional Data Analyst skilled in Excel, Power BI, and Python. I work full-time in the analytics field and now also offer freelance services to help individuals and businesses make sense of their data through clean dashboards, automation, and actionable insights.
 
 ---
 
@@ -11,32 +11,32 @@ I’m Gagan, a professional data analyst specializing in Excel, Power BI, and Py
 **Live Portfolio:**  
 [https://gaganbp.github.io](https://gaganbp.github.io)
 
-Visit to see real examples of how I analyze and present data that supports smarter decisions.
+See how I turn complex data into impactful visual stories and streamlined reports.
 
 ---
 
-## 💼 Services I Offer
+## 💼 Services Offered
 
 - **Excel Reports & Dashboards**  
-  Advanced formulas, charts, pivot tables, data validation, and dynamic reports.
+  Advanced formulas, pivot tables, charts, dynamic data models.
 
 - **Power BI Dashboards**  
-  Fully interactive dashboards with filters, drill-downs, and professional layouts.
+  Interactive, filterable reports with professional design and deep insights.
 
 - **Python for Data Analysis**  
-  Data preprocessing, automation, visualization, and basic predictive analysis using Pandas, NumPy, Matplotlib.
+  Data cleaning, automation, visualization with Pandas, NumPy, Matplotlib.
 
 - **Data Cleaning & Transformation**  
-  Prepare and optimize data for reliable analysis and reporting.
+  Prepare raw data for meaningful analysis.
 
 ---
 
 ## 🛠️ Skills
 
 **Tools:** Excel, Power BI  
-**Languages:** Python  
-**Python Libraries:** Pandas, NumPy, Matplotlib  
-**Excel Expertise:** VLOOKUP, XLOOKUP, COUNTIF, SUMIF, IF, nested IF, Pivot Tables, Conditional Formatting, Dashboards
+**Programming:** Python  
+**Libraries:** Pandas, NumPy, Matplotlib  
+**Excel Expertise:** VLOOKUP, XLOOKUP, COUNTIF, SUMIF, IF, nested IF, Conditional Formatting, Pivot Tables
 
 ---
 
@@ -47,11 +47,11 @@ Visit to see real examples of how I analyze and present data that supports smart
 
 ---
 
-## ✅ Why Choose Me?
+## ✅ Why Work With Me?
 
-- Working Data Analyst with real-world experience  
-- Specializes in creating value through clean, visual, and structured data  
-- Reliable communication and professional results  
-- Committed to helping you understand and use your data better
+- Real-world experience as a working Data Analyst  
+- Now accepting freelance projects (short-term or ongoing)  
+- Reliable, detail-oriented, and focused on delivering value through data  
+- Passionate about clean visuals and practical insights
 
-➡ Ready to get started? Check out my portfolio: [gaganbp.github.io](https://gaganbp.github.io)
+➡️ Let’s connect — visit [gaganbp.github.io](https://gaganbp.github.io) to learn more.
