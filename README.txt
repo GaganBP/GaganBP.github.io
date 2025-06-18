@@ -1,32 +1,34 @@
-Massively by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# 👋 Hi, I'm Gagan BP
 
+### Freelance Data Analyst | SQL | Python | Power BI Specialist
 
-This is Massively, a text-heavy, article-oriented design built around a huge background
-image (with a new parallax implementation I'm testing) and scroll effects (powered by
-Scrollex). A *slight* departure from all the one-pagers I've been doing lately, but one
-that fulfills a few user requests and makes use of some new techniques I've been wanting
-to try out. Enjoy it :)
+I help businesses make data-driven decisions through:
+- 📊 Custom Power BI dashboards
+- 🐍 Python data analysis & automation
+- 📈 SQL database solutions
+- 🔍 End-to-end analytics projects
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+### 🔗 My Portfolio
+Explore my work:  
+[gaganbp.github.io](https://gaganbp.github.io)
 
-(* = not included)
+### 💼 Freelance Services
+✔️ Data visualization & reporting  
+✔️ Business intelligence solutions  
+✔️ Data cleaning & transformation  
+✔️ Predictive analytics  
 
-AJ
-aj@lkn.io | @ajlkn
+### 🛠️ Core Skills
+**BI Tools:** Power BI, Excel  
+**Languages:** Python, SQL  
+**Libraries:** Pandas, NumPy, Matplotlib  
+**Databases:** MySQL, PostgreSQL  
 
+### 🌟 Recent Projects
+1. [HR Analytics Dashboard](https://github.com/GaganBP/PowerBI-HR-Analytics) - Power BI
+2. [Amazon Sales Analysis](https://github.com/GaganBP/Amazon-Sale-Analytics) - Business Intelligence
+3. [Healthcare ML Model](https://github.com/GaganBP/Heart-Disease-Prediction-Comprehensive-ML-Algorithm-Comparison) - Python
 
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Scrollex (github.com/ajlkn/jquery.scrollex)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+### 📫 Get In Touch
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/gagan-b-p-0a9635243/)
+[![Email](https://img.shields.io/badge/Email-Hire_Me-red)](mailto:gaganbp77@gmail.com)
