@@ -284,7 +284,7 @@
                 "currenciesAccepted": ["INR", "USD", "EUR"]
             }
         </script>
-<!-- Occupation Schema (without estimatedSalary to avoid rich result errors) -->
+<!-- Occupation Schema with valid estimatedSalary -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -295,12 +295,27 @@
     "@type": "City",
     "name": "Bengaluru"
   },
+  "estimatedSalary": [
+    {
+      "@type": "MonetaryAmountDistribution",
+      "name": "base",
+      "currency": "INR",
+      "duration": "P1Y",
+      "percentile10": 180000,
+      "percentile25": 200000,
+      "median": 216000,
+      "percentile75": 240000,
+      "percentile90": 300000
+    }
+  ],
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://gaganbp.github.io/"
+    "@id": "https://gaganbp.github.io/",
+    "lastReviewed": "2025-06-21T23:59:00+05:30"
   }
 }
 </script>
+
 
         <!-- Organization Schema -->
         <script type="application/ld+json">
