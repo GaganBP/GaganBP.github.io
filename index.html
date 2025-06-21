@@ -284,7 +284,7 @@
                 "currenciesAccepted": ["INR", "USD", "EUR"]
             }
         </script>
-<!-- Occupation Schema for Estimated Salaries -->
+<!-- Occupation Schema (without estimatedSalary to avoid rich result errors) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -295,21 +295,13 @@
     "@type": "City",
     "name": "Bengaluru"
   },
-  "estimatedSalary": {
-    "@type": "MonetaryAmount",
-    "currency": "INR",
-    "value": {
-      "@type": "QuantitativeValue",
-      "value": 216000,
-      "unitText": "YEAR"
-    }
-  },
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https://gaganbp.github.io/"
   }
 }
 </script>
+
         <!-- Organization Schema -->
         <script type="application/ld+json">
             {
