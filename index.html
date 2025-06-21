@@ -146,7 +146,7 @@
             }
         </script>
 
-        <!-- Comprehensive Structured Data -->
+         <!-- Comprehensive Structured Data -->
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
@@ -202,28 +202,7 @@
                         "description": "Predictive modeling and algorithm implementation"
                     }
                 ],
-                "hasOccupation": {
-    "@type": "Occupation",
-    "name": "Data Analyst",
-    "occupationLocation": {
-        "@type": "City",
-        "name": "Bengaluru"
-    },
-    "description": "Freelance data analyst providing business intelligence solutions",
-    "estimatedSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "INR",
-        "value": {
-            "@type": "QuantitativeValue",
-            "value": 216000,
-            "unitText": "YEAR"
-        }
-    },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://gaganbp.github.io/"
-    }
-},
+                
 
                 "offers": {
                     "@type": "OfferCatalog",
@@ -305,7 +284,32 @@
                 "currenciesAccepted": ["INR", "USD", "EUR"]
             }
         </script>
-
+<!-- Occupation Schema for Estimated Salaries -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Occupation",
+  "name": "Data Analyst",
+  "description": "Freelance data analyst providing business intelligence solutions",
+  "occupationLocation": {
+    "@type": "City",
+    "name": "Bengaluru"
+  },
+  "estimatedSalary": {
+    "@type": "MonetaryAmount",
+    "currency": "INR",
+    "value": {
+      "@type": "QuantitativeValue",
+      "value": 216000,
+      "unitText": "YEAR"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://gaganbp.github.io/"
+  }
+}
+</script>
         <!-- Organization Schema -->
         <script type="application/ld+json">
             {
