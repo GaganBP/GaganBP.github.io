@@ -1,0 +1,1563 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<!-- Primary Meta Tags -->
+<title>Gagan BP | Data Analyst | SQL | Python | Power BI | Tableau Specialist</title>
+<meta name="description" content="Data Analyst with 1+ years experience in SQL, Python, Power BI & Tableau. Transforming data into actionable insights for business growth.">
+<meta name="keywords" content="data analyst, data analytics portfolio, SQL expert, Python data analysis, Power BI developer, Tableau specialist, data visualization">
+<meta name="author" content="Gagan BP">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gaganbp.github.io/">
+<meta property="og:title" content="Gagan BP | Data Analyst Portfolio">
+<meta property="og:description" content="Data Analyst specializing in SQL, Python, Power BI & Tableau. View my projects and skills.">
+<meta property="og:image" content="https://gaganbp.github.io/assets/img/me.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gagan BP | Data Analyst Portfolio">
+<meta name="twitter:description" content="Data Analyst specializing in SQL, Python, Power BI & Tableau.">
+<meta name="twitter:image" content="https://gaganbp.github.io/assets/img/me.png">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Gagan BP",
+  "url": "https://gaganbp.github.io",
+  "sameAs": [
+    "https://www.linkedin.com/in/gagan-bp-1a3b55207/",
+    "https://github.com/gaganbp"
+  ],
+  "jobTitle": "Data Analyst",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Freelance"
+  },
+  "description": "Professional Data Analyst with expertise in SQL, Python, Power BI and Tableau.",
+  "skills": [
+    "SQL", 
+    "Python",
+    "Power BI",
+    "Tableau",
+    "Data Analysis",
+    "Data Visualization",
+    "Excel",
+    "Machine Learning"
+  ]
+}
+</script>
+   <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e6ed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+		  .contact-line {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        line-height: 1.5;
+    }
+    
+    .contact-line i {
+        width: 20px;
+        text-align: center;
+        margin-right: 10px;
+        font-size: 1rem;
+        color: #00d4ff;
+    }
+    
+    .contact-label {
+        font-weight: 600;
+        color: #e0e6ed;
+        min-width: 60px;
+        margin-right: 8px;
+    }
+    
+    .contact-text {
+        color: #c0c7d0;
+        flex: 1;
+    }
+          .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating animation for decorative elements */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        /* Pulse animation for CTA elements */
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 12px 35px rgba(108, 99, 255, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4); }
+        }
+
+        /* Header */
+        #header {
+            background: rgba(10, 10, 20, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        #header.scrolled {
+            padding: 8px 20px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        #nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .logo {
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #00d4ff, #6c63ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #00d4ff, #6c63ff);
+            transition: width 0.4s ease;
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: clamp(20px, 4vw, 35px);
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a {
+            color: #e0e6ed;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a i {
+            margin-right: 8px;
+            font-size: 0.9em;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #00d4ff, #6c63ff);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            z-index: 1001;
+            padding: 10px;
+        }
+        
+        .menu-toggle span {
+            width: 28px;
+            height: 3px;
+            background: linear-gradient(135deg, #00d4ff, #6c63ff);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        
+
+        /* Hamburger Animation */
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Intro Section */
+        #intro {
+            text-align: center;
+            padding: 50px 20px 40px;
+            background: linear-gradient(45deg, rgba(0, 123, 255, 0.08), rgba(108, 99, 255, 0.08));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative floating elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.1);
+            filter: blur(30px);
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            top: 30%;
+            right: 20%;
+            animation-delay: 4s;
+        }
+
+        #intro h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #00d4ff, #6c63ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(108, 99, 255, 0.3);
+            line-height: 1.1;
+            position: relative;
+            display: inline-block;
+        }
+
+        #intro h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+            border-radius: 3px;
+        }
+
+        #intro p {
+            font-size: clamp(1.1rem, 2.8vw, 1.3rem);
+            max-width: 900px;
+            margin: 0 auto 25px;
+            color: #c0c7d0;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        #intro a {
+            color: #00d4ff;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        #intro a:hover {
+            border-bottom-color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.6);
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #6c63ff, #00d4ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            text-align: center;
+            min-width: 180px;
+            min-height: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .button:hover::before {
+            left: 100%;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(108, 99, 255, 0.6);
+            background: linear-gradient(135deg, #5a52e6, #00b8e6);
+            animation: pulse 1.5s infinite;
+        }
+
+        .button i {
+            margin-right: 10px;
+            font-size: 1.1em;
+        }
+
+        /* Main Content */
+        #main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: clamp(25px, 4vw, 40px) 20px;
+            flex: 1;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: rgba(25, 25, 40, 0.9);
+            border-radius: 25px;
+            padding: clamp(30px, 5vw, 50px);
+            margin-bottom: clamp(25px, 4vw, 40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #6c63ff, #00d4ff, #ff6b6b);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 35px 70px rgba(108, 99, 255, 0.25);
+            border-color: rgba(108, 99, 255, 0.3);
+        }
+
+        .project-card h2 {
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            margin-bottom: 20px;
+            color: #00d4ff;
+            line-height: 1.3;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-card h2 i {
+            margin-right: 15px;
+            font-size: 1.2em;
+        }
+
+        .project-card h2 a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-card h2 a:hover {
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+        }
+
+        .project-card p {
+            font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+            color: #c0c7d0;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+            aspect-ratio: 16/9;
+            background: rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            max-width: 100%;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(0, 212, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .image-container:hover::before {
+            opacity: 1;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-container .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .image-container:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 20px;
+            background: rgba(108, 99, 255, 0.7);
+            border-radius: 10px;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover .overlay-text {
+            transform: translateY(0);
+        }
+
+        /* Button Actions */
+        .actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            margin-top: 35px;
+        }
+
+        .actions .button {
+            flex: 1 1 auto;
+            max-width: 250px;
+        }
+
+        /* Tech badges */
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-badge {
+            background: rgba(108, 99, 255, 0.2);
+            color: #c0c7d0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(108, 99, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            background: rgba(108, 99, 255, 0.4);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        #footer {
+            background: rgba(10, 10, 20, 0.95);
+            padding: clamp(40px, 6vw, 60px) 20px 25px;
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: clamp(30px, 5vw, 50px);
+        }
+
+        .footer-section {
+            margin-bottom: 20px;
+        }
+
+		.footer-section strong {
+    margin-right: 5px;
+    font-weight: 600;
+    color: #e0e6ed;
+}
+        .footer-section h3 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-size: clamp(1.2rem, 2.8vw, 1.4rem);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-section h3 i {
+            margin-right: 12px;
+            font-size: 1.2em;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #c0c7d0;
+            text-decoration: none;
+            line-height: 1.9;
+            font-size: clamp(1rem, 2.2vw, 1.1rem);
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .footer-section p i, 
+        .footer-section a i {
+            margin-right: 10px;
+            font-size: 0.9em;
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-section a:hover {
+            color: #00d4ff;
+            text-shadow: 0 0 8px rgba(0, 212, 255, 0.4);
+        }
+
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 8px;
+            color: #e0e6ed;
+            font-weight: 600;
+            font-size: clamp(1rem, 2.2vw, 1.1rem);
+        }
+
+        .form-field input, .form-field textarea {
+            width: 100%;
+            padding: clamp(12px, 2.5vw, 15px);
+            background: rgba(25, 25, 40, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: #e0e6ed;
+            font-size: clamp(1rem, 2.2vw, 1.1rem);
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-field input:focus, .form-field textarea:focus {
+            outline: none;
+            border-color: #6c63ff;
+            box-shadow: 0 0 15px rgba(108, 99, 255, 0.4);
+            background: rgba(30, 30, 45, 0.9);
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 25px 20px;
+            color: #8a8a8a;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 35px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            width: 100%;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6c63ff, #00d4ff);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(108, 99, 255, 0.4);
+            z-index: 999;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(108, 99, 255, 0.6);
+        }
+
+        /* Loading animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(108, 99, 255, 0.2);
+            border-top: 5px solid #6c63ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loader-text {
+            color: #e0e6ed;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #00d4ff, #6c63ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Tooltip for icons */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: rgba(25, 25, 40, 0.95);
+            color: #e0e6ed;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8rem;
+            border: 1px solid rgba(108, 99, 255, 0.4);
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Contact Info Section Improvements */
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .contact-info-item i {
+            margin-right: 12px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .contact-info-text {
+            flex-grow: 1;
+        }
+
+        /* Mobile Menu Styles */
+        @media (max-width: 768px) {
+            #intro {
+                padding: 40px 15px 30px;
+            }
+            
+            .project-card {
+                padding: 25px;
+                margin-bottom: 25px;
+            }
+            
+            .actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .actions .button {
+                width: 100%;
+                max-width: none;
+            }
+            
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(10, 10, 20, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                padding: 20px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateX(0);
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 10px 0;
+                display: block;
+                text-align: center;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                position: relative;
+                z-index: 1000;
+            }
+            
+            .menu-toggle.active span {
+                background: #00d4ff;
+            }
+            
+            #main {
+                padding: 25px 15px;
+            }
+            
+            .footer-content {
+                display: flex;
+                flex-direction: column;
+                gap: 35px;
+            }
+
+            .footer-section {
+                width: 100%;
+            }
+
+            .floating-element:nth-child(3) {
+                display: none;
+            }
+
+            .form-field {
+                margin-bottom: 15px;
+            }
+            
+            .form-field input, 
+            .form-field textarea {
+                padding: 12px;
+                font-size: 1rem;
+            }
+            
+            .button {
+                width: 100%;
+                padding: 12px;
+            }
+
+            /* Improved contact info layout */
+            .contact-info-item {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .contact-info-item i {
+                margin-top: 0;
+            }
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: clamp(8px, 1.2vw, 10px);
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #6c63ff, #00d4ff);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #5a52e6, #00b8e6);
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+            
+            .fade-in, .button:hover, .project-card:hover, .image-container:hover img {
+                animation: none !important;
+                transform: none !important;
+            }
+            
+            .project-card {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="fade-in">
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading Portfolio...</div>
+        </div>
+    </div>
+
+    <header id="header" role="banner">
+    <nav id="nav" role="navigation" aria-label="Main navigation">
+        <a href="#" class="logo" aria-label="Home">
+            <i class="fas fa-chart-line" aria-hidden="true"></i>Gagan's Portfolio
+        </a>
+        <button class="menu-toggle" id="mobile-menu" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>       
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#main" aria-label="View projects"><i class="fas fa-project-diagram" aria-hidden="true"></i>Projects</a></li>
+            <li><a href="#footer" aria-label="Contact me"><i class="fas fa-envelope" aria-hidden="true"></i>Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+        <!-- Intro with semantic HTML -->
+        <section id="intro" aria-labelledby="intro-heading">
+            <div class="floating-element" aria-hidden="true"></div>
+            <div class="floating-element" aria-hidden="true"></div>
+            <div class="floating-element" aria-hidden="true"></div>
+            
+            <h1 id="intro-heading">Gagan Data Analyst<br />Portfolio</h1>
+            <p style="text-align: center;">
+                Turning raw data into meaningful insight is what I do best.  
+                From real-world projects in <strong>healthcare</strong>, <strong>HR</strong>, and <strong>e-commerce</strong>, I've built dashboards and predictive models that uncover trends and support smarter decisions.  
+                I use modern tools and AI like ChatGPT to simplify logic, speed up workflows, and bring clarity to complex data.  
+                I believe clear visualizations often speak louder than words — so every project I build is focused on clarity, simplicity, and value.  
+                <br><br>
+                Feel free to connect with me on <a href="https://www.linkedin.com/in/gagan-b-p-0a9635243/" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i>LinkedIn</a> to discuss collaborations or opportunities.
+            </p>
+            <div style="margin-top: 25px;">
+                <a href="#main" class="button" style="color: #ccc;" aria-label="View my projects"><i class="fas fa-arrow-down" aria-hidden="true"></i>Explore My Work</a>
+            </div>
+        </section>
+
+        <!-- Main content with project schema -->
+        <main id="main" role="main">
+            <!-- Project 1 with schema -->
+            <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
+                <meta itemprop="creator" content="Gagan BP">
+                <meta itemprop="dateCreated" content="2023">
+                <h2 itemprop="headline">
+                    <a href="https://github.com/GaganBP/PowerBI-HR-Analytics" itemprop="url">
+                        <i class="fas fa-users" aria-hidden="true"></i>HR Analytics Using Power BI
+                    </a>
+                </h2>
+                <p itemprop="description">In this project, I created a Power BI dashboard to analyze employee attrition and workforce trends, delivering actionable insights to improve retention and optimize compensation.</p>
+                
+                <div class="tech-badges">
+                    <span class="tech-badge" itemprop="keywords">Power BI</span>
+                    <span class="tech-badge" itemprop="keywords">Data Visualization</span>
+                    <span class="tech-badge" itemprop="keywords">HR Analytics</span>
+                    <span class="tech-badge" itemprop="keywords">Dashboard Design</span>
+                </div>
+                
+                <div class="image-container" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://gaganbp.github.io/images/Hranalytics.png">
+                    <meta itemprop="width" content="800">
+                    <meta itemprop="height" content="450">
+                    <a href="https://app.fabric.microsoft.com/view?r=eyJrIjoiNzViZTNjZTYtYTU4MS00NjViLTg2ODktZjAxNWZhODMyYzRiIiwidCI6IjY3OWY5YTYyLTIwODQtNGI0Yy1iNzk2LWI1NGFkZTM5ZmUxYiJ9" target="_blank" aria-label="View HR Analytics Dashboard">
+                        <img src="images/Hranalytics.png" alt="HR Analytics Dashboard showing employee attrition metrics" loading="lazy" itemprop="thumbnailUrl" />
+                        <div class="overlay">
+                            <div class="overlay-text">View Interactive Dashboard</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="actions">
+                    <a href="https://github.com/GaganBP/PowerBI-HR-Analytics" class="button" target="_blank" aria-label="View HR Analytics project on GitHub"><i class="fab fa-github" aria-hidden="true"></i>View on GitHub</a>
+                </div>
+                
+                <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "SoftwareApplication",
+                  "name": "HR Analytics Dashboard",
+                  "description": "Power BI dashboard analyzing employee attrition and workforce trends",
+                  "url": "https://github.com/GaganBP/PowerBI-HR-Analytics",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Gagan BP"
+                  },
+                  "applicationCategory": "Data Visualization",
+                  "operatingSystem": "Power BI",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  }
+                }
+                </script>
+            </article>
+
+            <!-- Project 2 with schema -->
+            <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
+                <meta itemprop="creator" content="Gagan BP">
+                <meta itemprop="dateCreated" content="2023">
+                <h2 itemprop="headline"><a href="https://github.com/GaganBP/Amazon-Sale-Analytics" itemprop="url"><i class="fab fa-amazon" aria-hidden="true"></i>Amazon Sales Analytics Using Power BI</a></h2>
+                <p itemprop="description">In this project, I created a Power BI dashboard to analyze Amazon sales trends, product performance, and state-wise profits, enabling data-driven decisions through interactive and insightful visualizations.</p>
+                
+                <div class="tech-badges">
+                    <span class="tech-badge" itemprop="keywords">Power BI</span>
+                    <span class="tech-badge" itemprop="keywords">E-commerce</span>
+                    <span class="tech-badge" itemprop="keywords">Sales Analysis</span>
+                    <span class="tech-badge" itemprop="keywords">Business Intelligence</span>
+                </div>
+                
+                <div class="image-container" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://gaganbp.github.io/images/AmazonSales.png">
+                    <meta itemprop="width" content="800">
+                    <meta itemprop="height" content="450">
+                    <a href="https://app.fabric.microsoft.com/view?r=eyJrIjoiMTJiZGI1N2QtMDBmMy00NDI1LThiMDAtZDc3MWM0YzhiODZiIiwidCI6IjY3OWY5YTYyLTIwODQtNGI0Yy1iNzk2LWI1NGFkZTM5ZmUxYiJ9" target="_blank" aria-label="View Amazon Sales Dashboard">
+                        <img src="images/AmazonSales.png" alt="Amazon Sales Dashboard showing regional sales performance" loading="lazy" itemprop="thumbnailUrl" />
+                        <div class="overlay">
+                            <div class="overlay-text">View Interactive Dashboard</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="actions">
+                    <a href="https://github.com/GaganBP/Amazon-Sale-Analytics" class="button" target="_blank" aria-label="View Amazon Sales project on GitHub"><i class="fab fa-github" aria-hidden="true"></i>View on GitHub</a>
+                </div>
+                
+                <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "SoftwareApplication",
+                  "name": "Amazon Sales Analytics Dashboard",
+                  "description": "Power BI dashboard analyzing Amazon sales trends and regional performance",
+                  "url": "https://github.com/GaganBP/Amazon-Sale-Analytics",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Gagan BP"
+                  },
+                  "applicationCategory": "Business Intelligence",
+                  "operatingSystem": "Power BI",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  }
+                }
+                </script>
+            </article>
+
+            <!-- Project 3 with schema -->
+            <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
+                <meta itemprop="creator" content="Gagan BP">
+                <meta itemprop="dateCreated" content="2023">
+                <h2 itemprop="headline"><a href="https://github.com/GaganBP/Heart-Disease-Prediction-Comprehensive-ML-Algorithm-Comparison" itemprop="url"><i class="fas fa-heartbeat" aria-hidden="true"></i>Heart Disease Prediction Using Machine Learning</a></h2>
+                <p itemprop="description">I compared ML, DL, and ensemble models for heart disease prediction; the stacked model performed best with ROC-AUC 0.93. The project highlights strong evaluation and model tuning skills.</p>
+                
+                <div class="tech-badges">
+                    <span class="tech-badge" itemprop="keywords">Machine Learning</span>
+                    <span class="tech-badge" itemprop="keywords">Python</span>
+                    <span class="tech-badge" itemprop="keywords">Healthcare</span>
+                    <span class="tech-badge" itemprop="keywords">Scikit-learn</span>
+                </div>
+                
+                <div class="image-container" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://gaganbp.github.io/images/heartdisease.png">
+                    <meta itemprop="width" content="800">
+                    <meta itemprop="height" content="450">
+                    <a href="https://colab.research.google.com/drive/1aBL_nwgUIlFRxyo6BBzHXon88bi2qkTI" target="_blank" aria-label="Open Heart Disease Prediction in Google Colab">
+                        <img src="images/heartdisease.png" alt="Heart Disease Prediction model comparison results" loading="lazy" itemprop="thumbnailUrl" />
+                        <div class="overlay">
+                            <div class="overlay-text">Open in Google Colab</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="actions">
+                    <a href="https://github.com/GaganBP/Heart-Disease-Prediction-Comprehensive-ML-Algorithm-Comparison" class="button" target="_blank" aria-label="View Heart Disease Prediction project on GitHub"><i class="fab fa-github" aria-hidden="true"></i>View on GitHub</a>
+                </div>
+                
+                <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "SoftwareApplication",
+                  "name": "Heart Disease Prediction Model",
+                  "description": "Machine learning model comparing various algorithms for heart disease prediction",
+                  "url": "https://github.com/GaganBP/Heart-Disease-Prediction-Comprehensive-ML-Algorithm-Comparison",
+                  "author": {
+                    "@type": "Person",
+                    "name": "Gagan BP"
+                  },
+                  "applicationCategory": "Healthcare Technology",
+                  "operatingSystem": "Python",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  }
+                }
+                </script>
+            </article>
+
+            <!-- Project 4 with schema -->
+            <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
+                <meta itemprop="creator" content="Gagan BP">
+                <meta itemprop="dateCreated" content="2023">
+                <h2 itemprop="headline"><a href="https://github.com/GaganBP/analysis-suicide-trends-india" itemprop="url"><i class="fas fa-chart-line" aria-hidden="true"></i>Analysis of Suicide Trends in India</a></h2>
+                <p itemprop="description">In this project, I analyzed suicide trends in India using NCRB 2021 data. The analysis highlights regional patterns across states, cities, and union territories through visualizations. A basic regression model was also applied to explore predictive trends.</p>
+                
+                <div class="tech-badges">
+                    <span class="tech-badge" itemprop="keywords">Data Analysis</span>
+                    <span class="tech-badge" itemprop="keywords">Python</span>
+                    <span class="tech-badge" itemprop="keywords">Pandas</span>
+                    <span class="tech-badge" itemprop="keywords">Matplotlib</span>
+                </div>
+                
+                <div class="image-container" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://gaganbp.github.io/images/Suicide.png">
+                    <meta itemprop="width" content="800">
+                    <meta itemprop="height" content="450">
+                    <a href="https://colab.research.google.com/drive/1qD9ZWWSRSRL2LT2pmPRT0VBetrJ6T0Sw" target="_blank" aria-label="Open Suicide Trends Analysis in Google Colab">
+                        <img src="images/Suicide.png" alt="Suicide trends visualization across Indian states" loading="lazy" itemprop="thumbnailUrl" />
+                        <div class="overlay">
+                            <div class="overlay-text">Open in Google Colab</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="actions">
+                    <a href="https://github.com/GaganBP/analysis-suicide-trends-india" class="button" target="_blank" aria-label="View Suicide Trends project on GitHub"><i class="fab fa-github" aria-hidden="true"></i>View on GitHub</a>
+                </div>
+                
+                <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "Dataset",
+                  "name": "Analysis of Suicide Trends in India",
+                  "description": "Data analysis of suicide trends across Indian states using NCRB 2021 data",
+                  "url": "https://github.com/GaganBP/analysis-suicide-trends-india",
+                  "creator": {
+                    "@type": "Person",
+                    "name": "Gagan BP"
+                  },
+                  "keywords": ["suicide trends", "India", "data analysis", "public health"],
+                  "license": "https://creativecommons.org/licenses/by/4.0/"
+                }
+                </script>
+            </article>
+
+            <!-- Project 5 with schema -->
+            <article class="project-card" itemscope itemtype="https://schema.org/CreativeWork">
+                <meta itemprop="creator" content="Gagan BP">
+                <meta itemprop="dateCreated" content="2023">
+                <h2 itemprop="headline"><a href="https://github.com/GaganBP/Netflix_Movie_Analysis" itemprop="url"><i class="fas fa-film" aria-hidden="true"></i>Netflix Movie Analysis</a></h2>
+                <p itemprop="description">In this project, I analyzed a Netflix movie dataset to explore trends in popularity, genres, ratings, and release years. The analysis included data cleaning, visualization, and basic statistics to uncover key insights. It highlights factors that may influence a movie's success on the platform.</p>
+                
+                <div class="tech-badges">
+                    <span class="tech-badge" itemprop="keywords">Data Analysis</span>
+                    <span class="tech-badge" itemprop="keywords">Python</span>
+                    <span class="tech-badge" itemprop="keywords">Entertainment</span>
+                    <span class="tech-badge" itemprop="keywords">Seaborn</span>
+                </div>
+                
+                <div class="image-container" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://gaganbp.github.io/images/Netflix.png">
+                    <meta itemprop="width" content="800">
+                    <meta itemprop="height" content="450">
+                    <a href="https://colab.research.google.com/drive/1sW9Z8xRmcpbB_UrwSRDPXrnNVaGZ0xZb" target="_blank" aria-label="Open Netflix Movie Analysis in Google Colab">
+                        <img src="images/Netflix.png" alt="Netflix content analysis visualization" loading="lazy" itemprop="thumbnailUrl" />
+                        <div class="overlay">
+                            <div class="overlay-text">Open in Google Colab</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="actions">
+                    <a href="https://github.com/GaganBP/Netflix_Movie_Analysis" class="button" target="_blank" aria-label="View Netflix Analysis project on GitHub"><i class="fab fa-github" aria-hidden="true"></i>View on GitHub</a>
+                </div>
+                
+                <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "Dataset",
+                  "name": "Netflix Movie Analysis",
+                  "description": "Exploratory analysis of Netflix movie dataset focusing on content trends",
+                  "url": "https://github.com/GaganBP/Netflix_Movie_Analysis",
+                  "creator": {
+                    "@type": "Person",
+                    "name": "Gagan BP"
+                  },
+                  "keywords": ["Netflix", "movie analysis", "entertainment", "data visualization"],
+                  "license": "https://creativecommons.org/licenses/by/4.0/"
+                }
+                </script>
+            </article>
+        </main>
+
+        <!-- Footer with enhanced semantics -->
+        <footer id="footer" role="contentinfo">
+            <div class="footer-content">
+               <!-- 1. Contact Info -->
+<div class="footer-section" itemscope itemtype="https://schema.org/Person">
+    <h3><i class="fas fa-address-card" aria-hidden="true"></i> <span>Contact Info</span></h3>
+    
+    <div class="contact-line" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+        <span class="contact-label">Location:</span>
+        <span class="contact-text">
+            <span itemprop="addressLocality">Bengaluru</span>, 
+            <span itemprop="addressRegion">Karnataka</span>, 
+            <span itemprop="addressCountry">India</span>
+        </span>
+    </div>
+    
+    <div class="contact-line">
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+        <span class="contact-label">Email:</span>
+        <a href="mailto:gaganbp77@gmail.com" class="contact-text" itemprop="email">gaganbp77@gmail.com</a>
+    </div>
+    
+    <div class="contact-line">
+        <i class="fab fa-linkedin" aria-hidden="true"></i>
+        <span class="contact-label">LinkedIn:</span>
+        <a href="https://www.linkedin.com/in/gagan-b-p-0a9635243/" class="contact-text" itemprop="sameAs" rel="noopener noreferrer">Connect with me</a>
+    </div>
+    
+    <div class="contact-line">
+        <i class="fab fa-github" aria-hidden="true"></i>
+        <span class="contact-label">GitHub:</span>
+        <a href="https://github.com/GaganBP" class="contact-text" itemprop="sameAs" rel="noopener noreferrer">View my projects</a>
+    </div>
+</div>
+
+                <!-- 2. Skills & Technologies -->
+                <div class="footer-section">
+                    <h3><i class="fas fa-code" aria-hidden="true"></i>Skills & Technologies</h3>
+                    <div class="contact-info-item">
+                        <i class="fab fa-python" aria-hidden="true"></i>
+                        <div class="contact-info-text">Python (Pandas, NumPy, Seaborn, Matplotlib)</div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-chart-bar" aria-hidden="true"></i>
+                        <div class="contact-info-text">Power BI & Excel</div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-database" aria-hidden="true"></i>
+                        <div class="contact-info-text">SQL & Database Management</div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-brain" aria-hidden="true"></i>
+                        <div class="contact-info-text">Machine Learning Basics</div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i class="fas fa-chart-pie" aria-hidden="true"></i>
+                        <div class="contact-info-text">Data Visualization</div>
+                    </div>
+                </div>
+
+                <!-- 3. Get In Touch -->
+                <div class="footer-section">
+                    <h3><i class="fas fa-paper-plane" aria-hidden="true"></i>Get In Touch</h3>
+                    <form id="contact-form" action="https://formspree.io/f/xkgbjblo" method="POST" role="form">
+                        <!-- Honeypot trap -->
+                        <input type="text" name="_gotcha" style="display:none">
+
+                        <div class="form-field">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" required pattern="[A-Za-z\s]+" title="Enter a valid name (letters only)">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="email">Email</label>
+                            <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                required 
+                                title="Only Gmail, Yahoo, Outlook, Hotmail, ProtonMail, or iCloud emails are allowed." />
+                            <span id="email-warning" style="color:red; display:none;">
+                                Only trusted domains like Gmail, Yahoo, Outlook, etc. are allowed.
+                            </span>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" rows="4" required></textarea>
+                        </div>
+
+                        <button type="submit" class="button">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="copyright">
+                <p>&copy; 2025 Gagan Data Analyst Portfolio. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <!-- Back to top button -->
+        <div class="back-to-top" id="back-to-top">
+            <i class="fas fa-arrow-up" ></i>
+        </div>
+    </div>
+
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', function() {
+            // Toggle the active class for hamburger animation
+            mobileMenu.classList.toggle('active');
+            
+            // Toggle the active class for nav links visibility
+            navLinks.classList.toggle('active');
+            
+            // Update aria-expanded attribute
+            const expanded = mobileMenu.getAttribute('aria-expanded') === 'true' || false;
+            mobileMenu.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Close mobile menu when clicking on nav links
+        const navLinkItems = navLinks.querySelectorAll('a');
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+                mobileMenu.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = mobileMenu.contains(event.target) || navLinks.contains(event.target);
+            
+            if (!isClickInsideNav && navLinks.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+                mobileMenu.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+
+        // Project card animation on scroll
+        const projectCards = document.querySelectorAll('.project-card');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        projectCards.forEach(card => {
+            observer.observe(card);
+        });
+
+        // Form submission handling
+        const form = document.getElementById('contact-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                
+                fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Message sent successfully!');
+                        form.reset();
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    alert('There was a problem sending your message. Please try again later.');
+                    console.error('Error:', error);
+                });
+            });
+        }
+
+        // Email domain validation
+        document.addEventListener("DOMContentLoaded", function () {
+            const allowedDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'protonmail.com', 'icloud.com'];
+
+            const emailInput = document.getElementById('email');
+            const warning = document.getElementById('email-warning');
+            const form = document.getElementById('contact-form');
+
+            emailInput.addEventListener('input', function () {
+                const email = emailInput.value;
+                const domain = email.substring(email.lastIndexOf("@") + 1);
+
+                if (email && !allowedDomains.includes(domain)) {
+                    warning.style.display = 'block';
+                    emailInput.setCustomValidity("Invalid email domain.");
+                } else {
+                    warning.style.display = 'none';
+                    emailInput.setCustomValidity("");
+                }
+            });
+
+            form.addEventListener('submit', function (e) {
+                const email = emailInput.value;
+                const domain = email.substring(email.lastIndexOf("@") + 1);
+
+                if (!allowedDomains.includes(domain)) {
+                    e.preventDefault();
+                    warning.style.display = 'block';
+                    alert("Submission blocked: Only trusted email domains allowed.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
