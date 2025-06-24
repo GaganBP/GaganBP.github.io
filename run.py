@@ -18,9 +18,9 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == "__main__":
     PORT = int(os.environ.get('PORT', 3000))
-    
+
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    
+
     with socketserver.TCPServer(("0.0.0.0", PORT), CustomHTTPRequestHandler) as httpd:
         print(f"Portfolio server running on http://localhost:{PORT}")
         print("Serving professional data analyst portfolio...")
