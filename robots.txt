@@ -1,0 +1,22 @@
+
+User-agent: *
+Allow: /
+
+# Priority pages for crawling
+Allow: /#about
+Allow: /#skills
+Allow: /#projects
+Allow: /#services
+Allow: /#contact
+
+# Block common bot traps
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Sitemap location
+Sitemap: https://gaganbp.github.io/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
