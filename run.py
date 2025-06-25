@@ -6,9 +6,18 @@ import sys
 
 class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
-        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
-        self.send_header('Pragma', 'no-cache')
-        self.send_header('Expires', '0')
+        # Set performance headers
+        if self.path.endswith(('.css', '.js')):
+            self.send_header('Cache-Control', 'public, max-age=31536000')  # 1 year for static assets
+        elif self.path.endswith(('.png', '.jpg', '.jpeg', '.webp', '.gif')):
+            self.send_header('Cache-Control', 'public, max-age=31536000')  # 1 year for images
+        else:
+            self.send_header('Cache-Control', 'public, max-age=3600')  # 1 hour for HTML
+        
+        # Performance headers
+        self.send_header('X-Content-Type-Options', 'nosniff')
+        self.send_header('X-Frame-Options', 'DENY')
+        self.send_header('X-XSS-Protection', '1; mode=block')
         super().end_headers()
 
     def do_GET(self):
