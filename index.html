@@ -1,14 +1,39 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1LMYP9DMX"></script>
+        <!-- Google tag (gtag.js) - Deferred loading -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-E1LMYP9DMX');
+  
+  // Load Google Analytics asynchronously
+  function loadGoogleAnalytics() {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-E1LMYP9DMX';
+    document.head.appendChild(script);
+  }
+  
+  // More aggressive deferring on mobile devices
+  const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const delay = isMobile ? 3000 : 1000; // 3 seconds on mobile, 1 second on desktop
+  
+  // Load GA after page load or on first user interaction
+  if (document.readyState === 'complete') {
+    setTimeout(loadGoogleAnalytics, delay);
+  } else {
+    window.addEventListener('load', () => setTimeout(loadGoogleAnalytics, delay));
+  }
+  
+  // Load on first user interaction (but with delay on mobile)
+  const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
+  events.forEach(function(event) {
+    document.addEventListener(event, function() {
+      setTimeout(loadGoogleAnalytics, isMobile ? 1000 : 0);
+    }, { once: true, passive: true });
+  });
 </script>
         <!-- Primary Meta Tags -->
         <title>Gagan BP | Data Analyst – Python, SQL, Excel, Power BI</title>
@@ -39,8 +64,16 @@
 
         <!-- DNS prefetch for performance -->
         <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-        <link rel="dns-prefetch" href="//gaganbp.github.io">
+        <link rel="dns-prefetch" href="//www.googletagmanager.com">
+        <link rel="dns-prefetch" href="//app.fabric.microsoft.com">
+        <link rel="dns-prefetch" href="//github.com">
+        <link rel="dns-prefetch" href="//colab.research.google.com">
+        
+        <!-- Preconnect for critical third-party resources -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
@@ -102,36 +135,82 @@
         <link rel="canonical" href="https://gaganbp.github.io/" />
 
         <!-- Preload critical resources -->
-        <link
-            rel="preload"
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-            as="style"
-        />
-        <link
-            rel="preload"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            as="style"
-        />
         <link rel="preload" href="styles.css" as="style" />
         <link rel="preload" href="script.js" as="script" />
+        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin />
 
-        <!-- Fonts -->
+        <!-- Fonts with optimized loading -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
+            media="print"
+            onload="this.media='all'"
         />
+        <noscript>
+            <link
+                href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+                rel="stylesheet"
+            />
+        </noscript>
 
-        <!-- Font Awesome -->
+        <!-- Font Awesome - Load asynchronously -->
         <link
-            rel="stylesheet"
+            rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
         />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+                integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+                crossorigin="anonymous"
+                referrerpolicy="no-referrer"
+            />
+        </noscript>
 
+        <!-- Critical inline CSS to prevent white flash -->
+        <style>
+            html,body{background:#0a0a0a;color:#e0e6ed;margin:0;padding:0;overflow-x:hidden;font-display:swap}
+            .loader{position:fixed;top:0;left:0;width:100%;height:100vh;background:#0a0a0a;display:flex;align-items:center;justify-content:center;z-index:9999}
+            /* Critical path optimization */
+            .hero-content h1{font-display:swap;will-change:transform}
+            img{max-width:100%;height:auto;display:block}
+            /* Reduce layout shift */
+            .project-image{aspect-ratio:16/10;background:#1a1a2e}
+            .floating-element{will-change:transform;transform:translateZ(0)}
+            /* Critical above-the-fold styles */
+            #header{position:fixed;top:0;left:0;right:0;background:rgba(10,10,20,0.95);backdrop-filter:blur(20px);padding:15px 0;z-index:1000;border-bottom:1px solid rgba(255,255,255,0.1)}
+            .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 50%,#16213e 100%);padding-top:80px}
+            .hero-content{text-align:center;max-width:800px;padding:0 20px}
+            .hero-content h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1.3;margin-bottom:1rem;background:linear-gradient(135deg,#6c63ff,#00d4ff);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+            .nav-links{display:flex;list-style:none;gap:30px;align-items:center}
+            .logo{font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,#6c63ff,#00d4ff);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;display:flex;align-items:center;gap:10px}
+            /* Form styling */
+            .required {color: red;}
+            .form-row {display: grid;grid-template-columns: 1fr 1fr;gap: 20px;width: 100%;margin-bottom: 25px;}
+            .form-group.half-width {margin-bottom: 0;}
+            /* Mobile-specific optimizations */
+            @media (max-width: 768px) {
+                .floating-element{display:none !important}
+                .hero-background{display:none !important}
+                .hero-content h1{font-size:clamp(1.8rem,6vw,2.5rem) !important}
+                .hero{padding-top:60px;min-height:80vh}
+                #header{padding:10px 0}
+                .hero-content{padding:0 15px}
+                .btn{min-height:44px;font-size:0.9rem}
+                .form-row {grid-template-columns: 1fr;gap: 15px;margin-bottom: 20px;}
+                .form-group.half-width {margin-bottom: 20px;}
+            }
+            @media (max-width: 480px) {
+                .hero-content h1{font-size:1.6rem !important;line-height:1.2 !important}
+                .hero{min-height:70vh}
+            }
+        </style>
+        
         <!-- Stylesheets -->
         <link rel="stylesheet" href="styles.css" />
 
@@ -460,7 +539,7 @@
         <!-- Header -->
         <header id="header" role="banner">
             <nav id="nav" role="navigation" aria-label="Main navigation">
-                <a href="#home" class="logo" aria-label="Home">
+                <a href="index.html" class="logo" aria-label="Home">
                     <i class="fas fa-chart-line" aria-hidden="true"></i>
                     <span itemprop="name">GaganBP</span>
                 </a>
@@ -477,31 +556,31 @@
                 </button>
                 <ul class="nav-links" id="nav-links">
                     <li>
-                        <a href="#home"><i class="fas fa-home"></i>Home</a>
+                        <a href="index.html" class="active"><i class="fas fa-home"></i>Home</a>
                     </li>
                     <li>
-                        <a href="/#about"><i class="fas fa-user"></i>About</a>
+                        <a href="about.html"><i class="fas fa-user"></i>About</a>
                     </li>
                     <li>
-                        <a href="#skills"><i class="fas fa-cogs"></i>Skills</a>
+                        <a href="skills.html"><i class="fas fa-cogs"></i>Skills</a>
                     </li>
                     <li>
-                        <a href="/#projects"
+                        <a href="projects.html"
                             ><i class="fas fa-project-diagram"></i>Projects</a
                         >
                     </li>
                     <li>
-                        <a href="/#services"
+                        <a href="services.html"
                             ><i class="fas fa-briefcase"></i>Services</a
                         >
                     </li>
                     <li>
-                        <a href="#resume" id="resume-link">
+                        <a href="resume.html">
                             <i class="fas fa-file-alt"></i>Resume
                         </a>
                     </li>
                     <li>
-                        <a href="/#contact"
+                        <a href="contact.html"
                             ><i class="fas fa-envelope"></i>Contact</a
                         >
                     </li>
@@ -577,10 +656,10 @@
                 </p>
 
                 <div class="hero-cta" style="gap: 10px">
-                    <a href="#projects" class="btn btn-primary">
+                    <a href="projects.html" class="btn btn-primary">
                         <i class="fas fa-rocket"></i> View My Work
                     </a>
-                    <a href="#contact" class="btn btn-secondary">
+                    <a href="contact.html" class="btn btn-secondary">
                         <i class="fas fa-handshake"></i> Let's Work Together
                     </a>
                 </div>
@@ -769,7 +848,11 @@
                             src="images/Hranalytics.png"
                             alt="HR Analytics Dashboard showing employee attrition metrics"
                             loading="lazy"
+                            decoding="async"
+                            width="340"
+                            height="190"
                             itemprop="image"
+                            style="object-fit:cover;width:100%;height:100%"
                         />
                         <div class="project-overlay">
                             <a
@@ -830,7 +913,11 @@
                             src="images/AmazonSales.png"
                             alt="Amazon Sales Dashboard showing regional sales performance"
                             loading="lazy"
+                            decoding="async"
+                            width="340"
+                            height="191"
                             itemprop="image"
+                            style="object-fit:cover;width:100%;height:100%"
                         />
                         <div class="project-overlay">
                             <a
@@ -1295,95 +1382,147 @@
                             >
                                 <i class="fab fa-github"></i>
                             </a>
-                          <!-- <a href="https://wa.me/917892329607" target="_blank" class="social-link">
-    <i class="fab fa-whatsapp"></i>
-</a> -->
-                            </a>
                         </div>
                     </div>
 
                     <form
-                        class="contact-form"
-                        id="contact-form"
-                        action="https://formspree.io/f/xkgbjblo"
-                        method="POST"
-                        role="form"
-                        itemscope
-                        itemtype="https://schema.org/ContactPage"
-                    >
-                        <!-- Honeypot trap for bots -->
+                    class="contact-form"
+                    id="contact-form"
+                    action="https://formspree.io/f/xkgbjblo"
+                    method="POST"
+                    role="form"
+                    itemscope
+                    itemtype="https://schema.org/ContactPage"
+                >
+                    <!-- Honeypot trap for bots -->
+                    <input
+                        type="text"
+                        name="_gotcha"
+                        style="display: none"
+                        tabindex="-1"
+                        autocomplete="off"
+                    />
+
+                    <div class="form-group">
+                        <label for="index-name">Your Name <span class="required">*</span></label>
                         <input
                             type="text"
-                            name="_gotcha"
-                            style="display: none"
-                            tabindex="-1"
-                            autocomplete="off"
+                            id="index-name"
+                            name="name"
+                            required
+                            pattern="[A-Za-z\s]+"
+                            title="Enter a valid name (letters only)"
+                            itemprop="name"
                         />
+                    </div>
 
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                pattern="[A-Za-z\s]+"
-                                title="Enter a valid name (letters only)"
-                                itemprop="name"
-                            />
-                        </div>
+                    <div class="form-group">
+                        <label for="index-email">Your Email <span class="required">*</span></label>
+                        <input
+                            type="email"
+                            id="index-email"
+                            name="email"
+                            required
+                            title="Only Gmail, Yahoo, Outlook, Hotmail, ProtonMail, or iCloud emails are allowed."
+                            itemprop="email"
+                        />
+                        <span
+                            id="index-email-warning"
+                            style="
+                                color: #f44336;
+                                display: none;
+                                font-size: 0.8rem;
+                                margin-top: 5px;
+                            "
+                        >
+                            Only trusted domains like Gmail, Yahoo, Outlook,
+                            etc. are allowed.
+                        </span>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                title="Only Gmail, Yahoo, Outlook, Hotmail, ProtonMail, or iCloud emails are allowed."
-                                itemprop="email"
-                            />
-                            <span
-                                id="email-warning"
-                                style="
-                                    color: #f44336;
-                                    display: none;
-                                    font-size: 0.8rem;
-                                    margin-top: 5px;
-                                "
+                    <div class="form-group">
+                        <label for="index-service-type">Service Type <span class="required">*</span></label>
+                        <select
+                            id="index-service-type"
+                            name="service-type"
+                            required
+                            itemprop="serviceType"
+                        >
+                            <option value="">Select a service...</option>
+                            <option value="power-bi-dashboard">Power BI Dashboard</option>
+                            <option value="excel-dashboard">Excel Dashboard</option>
+                            <option value="data-cleaning-analysis">Data Cleaning & Analysis</option>
+                            <option value="sql-database-queries">SQL Database Queries</option>
+                            <option value="data-visualization-python">Data Visualization (Python)</option>
+                            <option value="machine-learning-models">Machine Learning Models</option>
+                            <option value="excel-automation">Excel Automation</option>
+                            <option value="website-development">Website Development</option>
+                            <option value="multiple-services">Multiple Services</option>
+                            <option value="consultation">Not Sure / Consultation</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label for="index-timeline">Project Timeline</label>
+                            <select
+                                id="index-timeline"
+                                name="timeline"
+                                itemprop="timeline"
                             >
-                                Only trusted domains like Gmail, Yahoo, Outlook,
-                                etc. are allowed.
-                            </span>
+                                <option value="">Select timeline...</option>
+                                <option value="within-1-week">Within 1 week</option>
+                                <option value="2-4-weeks">2-4 weeks</option>
+                                <option value="1-2-months">1-2 months</option>
+                                <option value="3-plus-months">3+ months</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
                         </div>
 
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input
-                                type="text"
-                                id="subject"
-                                name="subject"
-                                required
-                                itemprop="description"
-                            />
+                        <div class="form-group half-width">
+                            <label for="index-budget">Budget Range</label>
+                            <select
+                                id="index-budget"
+                                name="budget"
+                                itemprop="budget"
+                            >
+                                <option value="">Select budget...</option>
+                                <option value="under-5000">Under ₹5,000</option>
+                                <option value="5000-15000">₹5,000-₹15,000</option>
+                                <option value="15000-30000">₹15,000-₹30,000</option>
+                                <option value="30000-plus">₹30,000+</option>
+                                <option value="lets-discuss">Let's discuss</option>
+                            </select>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="5"
-                                required
-                                placeholder="Tell me about your project..."
-                                itemprop="text"
-                            ></textarea>
-                        </div>
+                    <div class="form-group">
+                        <label for="index-subject">Subject</label>
+                        <input
+                            type="text"
+                            id="index-subject"
+                            name="subject"
+                            placeholder="Brief description of your project"
+                            itemprop="description"
+                        />
+                    </div>
 
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <i class="fas fa-paper-plane"></i>Send Message
-                        </button>
-                    </form>
+                    <div class="form-group">
+                        <label for="index-message">Your Message <span class="required">*</span></label>
+                        <textarea
+                            id="index-message"
+                            name="message"
+                            rows="5"
+                            required
+                            placeholder="Tell me about your project in detail... What data do you have? What insights are you looking for?"
+                            itemprop="text"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i class="fas fa-paper-plane"></i>Send Message
+                    </button>
+                </form>
                 </div>
             </div>
         </section>
@@ -1402,11 +1541,11 @@
                     <div class="footer-section">
                         <strong>Quick Links</strong>
                         <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#projects">Projects</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
@@ -1588,7 +1727,7 @@
         <!-- Skip link for accessibility -->
         <a class="skip-link" href="#main">Skip to main content</a>
 
-        <!-- Script -->
-        <script src="script.js"></script>
+        <!-- Script - Load asynchronously -->
+        <script src="script.js" defer></script>
     </body>
 </html>
