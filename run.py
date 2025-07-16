@@ -1,27 +1,44 @@
-#!/usr/bin/env python3
-import http.server
-import socketserver
+from http.server import HTTPServer, SimpleHTTPRequestHandler
 import os
-import sys
+import mimetypes
 
-class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
+class OptimizedRequestHandler(SimpleHTTPRequestHandler):
     def end_headers(self):
-        self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
-        self.send_header('Pragma', 'no-cache')
-        self.send_header('Expires', '0')
+        # CORS headers
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+
+        # Performance headers
+        self.send_header('Cache-Control', 'public, max-age=31536000' if self.is_static_resource() else 'public, max-age=3600')
+        self.send_header('X-Content-Type-Options', 'nosniff')
+        self.send_header('X-Frame-Options', 'DENY')
+        self.send_header('X-XSS-Protection', '1; mode=block')
+
+        # Compression hint
+        if self.path.endswith(('.css', '.js', '.html')):
+            self.send_header('Content-Encoding', 'identity')
+
         super().end_headers()
 
-    def do_GET(self):
-        if self.path == '/':
-            self.path = '/index.html'
-        return super().do_GET()
+    def is_static_resource(self):
+        return self.path.endswith(('.css', '.js', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.woff', '.woff2'))
+
+    def guess_type(self, path):
+        """Enhanced MIME type detection"""
+        base, ext = os.path.splitext(path)
+        if ext in ('.webp',):
+            return 'image/webp'
+        return super().guess_type(path)
+
+def run_server():
+    port = int(os.environ.get("PORT", 3000))
+    server_address = ("0.0.0.0", port)
+    httpd = HTTPServer(server_address, OptimizedRequestHandler)
+    print(f"Portfolio server running on http://localhost:{port}")
+    print("Serving professional data analyst portfolio...")
+    print("Performance optimizations enabled")
+    httpd.serve_forever()
 
 if __name__ == "__main__":
-    PORT = int(os.environ.get('PORT', 3000))
-
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
-    with socketserver.TCPServer(("0.0.0.0", PORT), CustomHTTPRequestHandler) as httpd:
-        print(f"Portfolio server running on http://localhost:{PORT}")
-        print("Serving professional data analyst portfolio...")
-        httpd.serve_forever()
+    run_server()
