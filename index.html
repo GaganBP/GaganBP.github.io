@@ -1,39 +1,14 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <!-- Google tag (gtag.js) - Deferred loading -->
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1LMYP9DMX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
+
   gtag('config', 'G-E1LMYP9DMX');
-  
-  // Load Google Analytics asynchronously
-  function loadGoogleAnalytics() {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-E1LMYP9DMX';
-    document.head.appendChild(script);
-  }
-  
-  // More aggressive deferring on mobile devices
-  const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const delay = isMobile ? 3000 : 1000; // 3 seconds on mobile, 1 second on desktop
-  
-  // Load GA after page load or on first user interaction
-  if (document.readyState === 'complete') {
-    setTimeout(loadGoogleAnalytics, delay);
-  } else {
-    window.addEventListener('load', () => setTimeout(loadGoogleAnalytics, delay));
-  }
-  
-  // Load on first user interaction (but with delay on mobile)
-  const events = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
-  events.forEach(function(event) {
-    document.addEventListener(event, function() {
-      setTimeout(loadGoogleAnalytics, isMobile ? 1000 : 0);
-    }, { once: true, passive: true });
-  });
 </script>
         <!-- Primary Meta Tags -->
         <title>Gagan BP | Data Analyst – Python, SQL, Excel, Power BI</title>
@@ -61,19 +36,17 @@
         <!-- Performance optimizations -->
         <meta http-equiv="x-dns-prefetch-control" content="on">
         <meta name="referrer" content="no-referrer-when-downgrade">
+        
+        <!-- Security meta tags for GitHub Pages -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://formspree.io; base-uri 'self'; form-action 'self' https://formspree.io; upgrade-insecure-requests">
+        <meta http-equiv="X-Content-Type-Options" content="nosniff">
+        <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+        <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
         <!-- DNS prefetch for performance -->
         <link rel="dns-prefetch" href="//fonts.googleapis.com">
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-        <link rel="dns-prefetch" href="//www.googletagmanager.com">
-        <link rel="dns-prefetch" href="//app.fabric.microsoft.com">
-        <link rel="dns-prefetch" href="//github.com">
-        <link rel="dns-prefetch" href="//colab.research.google.com">
-        
-        <!-- Preconnect for critical third-party resources -->
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+        <link rel="dns-prefetch" href="//gaganbp.github.io">
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website" />
@@ -135,82 +108,36 @@
         <link rel="canonical" href="https://gaganbp.github.io/" />
 
         <!-- Preload critical resources -->
-        <link rel="preload" href="styles.css" as="style" />
-        <link rel="preload" href="script.js" as="script" />
-        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin />
-
-        <!-- Fonts with optimized loading -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet"
-            media="print"
-            onload="this.media='all'"
+            rel="preload"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            as="style"
         />
-        <noscript>
-            <link
-                href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-                rel="stylesheet"
-            />
-        </noscript>
-
-        <!-- Font Awesome - Load asynchronously -->
         <link
             rel="preload"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
             as="style"
-            onload="this.onload=null;this.rel='stylesheet'"
         />
-        <noscript>
-            <link
-                rel="stylesheet"
-                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-                integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-                crossorigin="anonymous"
-                referrerpolicy="no-referrer"
-            />
-        </noscript>
+        <link rel="preload" href="styles.css" as="style" />
+        <link rel="preload" href="script.js" as="script" />
 
-        <!-- Critical inline CSS to prevent white flash -->
-        <style>
-            html,body{background:#0a0a0a;color:#e0e6ed;margin:0;padding:0;overflow-x:hidden;font-display:swap}
-            .loader{position:fixed;top:0;left:0;width:100%;height:100vh;background:#0a0a0a;display:flex;align-items:center;justify-content:center;z-index:9999}
-            /* Critical path optimization */
-            .hero-content h1{font-display:swap;will-change:transform}
-            img{max-width:100%;height:auto;display:block}
-            /* Reduce layout shift */
-            .project-image{aspect-ratio:16/10;background:#1a1a2e}
-            .floating-element{will-change:transform;transform:translateZ(0)}
-            /* Critical above-the-fold styles */
-            #header{position:fixed;top:0;left:0;right:0;background:rgba(10,10,20,0.95);backdrop-filter:blur(20px);padding:15px 0;z-index:1000;border-bottom:1px solid rgba(255,255,255,0.1)}
-            .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 50%,#16213e 100%);padding-top:80px}
-            .hero-content{text-align:center;max-width:800px;padding:0 20px}
-            .hero-content h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1.3;margin-bottom:1rem;background:linear-gradient(135deg,#6c63ff,#00d4ff);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-            .nav-links{display:flex;list-style:none;gap:30px;align-items:center}
-            .logo{font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,#6c63ff,#00d4ff);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none;display:flex;align-items:center;gap:10px}
-            /* Form styling */
-            .required {color: red;}
-            .form-row {display: grid;grid-template-columns: 1fr 1fr;gap: 20px;width: 100%;margin-bottom: 25px;}
-            .form-group.half-width {margin-bottom: 0;}
-            /* Mobile-specific optimizations */
-            @media (max-width: 768px) {
-                .floating-element{display:none !important}
-                .hero-background{display:none !important}
-                .hero-content h1{font-size:clamp(1.8rem,6vw,2.5rem) !important}
-                .hero{padding-top:60px;min-height:80vh}
-                #header{padding:10px 0}
-                .hero-content{padding:0 15px}
-                .btn{min-height:44px;font-size:0.9rem}
-                .form-row {grid-template-columns: 1fr;gap: 15px;margin-bottom: 20px;}
-                .form-group.half-width {margin-bottom: 20px;}
-            }
-            @media (max-width: 480px) {
-                .hero-content h1{font-size:1.6rem !important;line-height:1.2 !important}
-                .hero{min-height:70vh}
-            }
-        </style>
-        
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
         <!-- Stylesheets -->
         <link rel="stylesheet" href="styles.css" />
 
@@ -260,7 +187,7 @@
                 "description": "Professional freelance data analyst specializing in SQL, Python, Power BI, Tableau, and machine learning. Expert in transforming complex data into actionable business insights.",
                 "image": "https://gaganbp.github.io/images/Hranalytics.png",
                 "telephone": "+919901468341",
-                "email": "databygagan@gmail.com",
+                "email": "gaganbp77@gmail.com",
                 "address": {
                     "@type": "PostalAddress",
                     "addressLocality": "Bengaluru",
@@ -360,7 +287,7 @@
                 "contactPoint": {
                     "@type": "ContactPoint",
                     "contactType": "customer service",
-                    "email": "databygagan@gmail.com",
+                    "email": "gaganbp77@gmail.com",
                     "availableLanguage": ["English", "Hindi", "kannada"],
                     "areaServed": ["IN", "US", "UK", "CA", "AU", "EU"],
                     "hoursAvailable": {
@@ -437,7 +364,7 @@
                     "@type": "ContactPoint",
                     "telephone": "+919901468341",
                     "contactType": "customer service",
-                    "email": "databygagan@gmail.com",
+                    "email": "gaganbp77@gmail.com",
                     "areaServed": ["IN", "US", "UK", "CA", "AU", "EU"],
                     "availableLanguage": ["English", "Hindi", "Kannada"]
                 },
@@ -503,7 +430,7 @@
                         "name": "How can I hire you for my data analytics project?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "You can contact me through the contact form on this website, email me at databygagan@gmail.com, or connect with me on LinkedIn. I offer free consultations to discuss your project requirements."
+                            "text": "You can contact me through the contact form on this website, email me at gaganbp77@gmail.com, or connect with me on LinkedIn. I offer free consultations to discuss your project requirements."
                         }
                     },
                     {
@@ -525,7 +452,15 @@
                 ]
             }
         </script>
-        
+        <!-- Critical inline CSS to prevent white flash -->
+        <style>
+            html,body{background:#0a1120!important;color:#e0e6ed;margin:0;padding:0;overflow-x:hidden;overscroll-behavior:none;-webkit-overflow-scrolling:touch;transform:translateZ(0);backface-visibility:hidden}
+            .loader{position:fixed;top:0;left:0;width:100%;height:100vh;background:#0a1120;display:flex;align-items:center;justify-content:center;z-index:9999}
+            *{transform:translateZ(0);backface-visibility:hidden}
+            .container,.section,.hero{contain:layout style;will-change:transform}
+            img{contain:layout;aspect-ratio:16/10;width:100%;height:auto}
+        </style>
+
     </head>
     <body itemscope itemtype="https://schema.org/WebPage" lang="en">
         <!-- Loading Screen -->
@@ -539,7 +474,7 @@
         <!-- Header -->
         <header id="header" role="banner">
             <nav id="nav" role="navigation" aria-label="Main navigation">
-                <a href="index.html" class="logo" aria-label="Home">
+                <a href="#home" class="logo" aria-label="Home">
                     <i class="fas fa-chart-line" aria-hidden="true"></i>
                     <span itemprop="name">GaganBP</span>
                 </a>
@@ -556,7 +491,7 @@
                 </button>
                 <ul class="nav-links" id="nav-links">
                     <li>
-                        <a href="index.html" class="active"><i class="fas fa-home"></i>Home</a>
+                        <a href="#home" class="active"><i class="fas fa-home"></i>Home</a>
                     </li>
                     <li>
                         <a href="about.html"><i class="fas fa-user"></i>About</a>
@@ -573,6 +508,9 @@
                         <a href="services.html"
                             ><i class="fas fa-briefcase"></i>Services</a
                         >
+                    </li>
+                    <li>
+                        <a href="faq.html"><i class="fas fa-question-circle"></i>FAQ</a>
                     </li>
                     <li>
                         <a href="resume.html">
@@ -848,11 +786,7 @@
                             src="images/Hranalytics.png"
                             alt="HR Analytics Dashboard showing employee attrition metrics"
                             loading="lazy"
-                            decoding="async"
-                            width="340"
-                            height="190"
                             itemprop="image"
-                            style="object-fit:cover;width:100%;height:100%"
                         />
                         <div class="project-overlay">
                             <a
@@ -913,11 +847,7 @@
                             src="images/AmazonSales.png"
                             alt="Amazon Sales Dashboard showing regional sales performance"
                             loading="lazy"
-                            decoding="async"
-                            width="340"
-                            height="191"
                             itemprop="image"
-                            style="object-fit:cover;width:100%;height:100%"
                         />
                         <div class="project-overlay">
                             <a
@@ -948,7 +878,7 @@
                             >
                             <span class="tech-tag" itemprop="keywords"
                                 >E-commerce</span
-                            >
+                                                        >
                             <span class="tech-tag" itemprop="keywords"
                                 >Sales Analysis</span
                             >
@@ -1308,7 +1238,7 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+            <!-- Contact Section -->
         <section id="contact" class="section" aria-labelledby="contact-heading">
             <div class="container">
                 <h2 id="contact-heading" class="section-title">
@@ -1534,7 +1464,7 @@
                 </div>
             </div>
         </section>
-
+<!--Contact section end -->
         <!-- Footer -->
         <footer class="footer" itemscope itemtype="https://schema.org/WPFooter">
             <div class="container">
@@ -1549,11 +1479,11 @@
                     <div class="footer-section">
                         <strong>Quick Links</strong>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="projects.html">Projects</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
@@ -1599,7 +1529,7 @@
                             </div>
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
-                                <span>databygagan@gmail.com</span>
+                                <span>gaganbp77@gmail.com</span>
                             </div>
                             <div class="contact-item">
                                 <i class="fab fa-linkedin"></i>
@@ -1735,7 +1665,7 @@
         <!-- Skip link for accessibility -->
         <a class="skip-link" href="#main">Skip to main content</a>
 
-        <!-- Script - Load asynchronously -->
-        <script src="script.js" defer></script>
+        <!-- Script -->
+        <script src="script.js"></script>
     </body>
 </html>
